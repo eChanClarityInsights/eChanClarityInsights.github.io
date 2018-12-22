@@ -27,6 +27,9 @@ YEAR_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/index.html'
 MONTH_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/{date:%b}/index.html'
 TAGLINE = '''Eric Chan is a Senior Associate Consultant at Clarity Insights.'''
 DISQUS_SITENAME = "echanclarityinsights-github-io-1"
+THEME = "pelican-svbhack"
+FAVICON = '/images/favicon.ico'
+USER_LOGO_URL = '/images/eric.jpg'
 
 
 LINKS = (('Clarity Insights', 'https://www.clarityinsights.com'),
