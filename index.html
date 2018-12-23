@@ -1,34 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-        <meta charset="utf-8" />
-        <title>Eric Chan @ Clarity Insights</title>
-        <link rel="stylesheet" href="https://echanclarityinsights.github.io/theme/css/main.css" />
-        <link href="https://echanclarityinsights.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Eric Chan @ Clarity Insights Atom Feed" />
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="https://echanclarityinsights.github.io/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="https://echanclarityinsights.github.io/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="https://echanclarityinsights.github.io/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Eric Chan">
+  <meta name="description" content="Posts and writings by Eric Chan">
+
+  <link href="https://echanclarityinsights.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Eric Chan @ Clarity Insights Atom" />
+
+
+  <title>
+    Eric Chan @ Clarity Insights
+  </title>
+
 </head>
 
-<body id="index" class="home">
-        <header id="banner" class="body">
-                <h1><a href="https://echanclarityinsights.github.io/">Eric Chan @ Clarity Insights </a></h1>
-                <nav><ul>
-                    <li><a href="https://echanclarityinsights.github.io/category/data-science.html">Data Science</a></li>
-                </ul></nav>
-        </header><!-- /#banner -->
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="https://echanclarityinsights.github.io">
+        <img src="/images/eric.jpg" alt="logo">
+      </a>
+      <h2><a href="https://echanclarityinsights.github.io">Eric Chan</a></h2>
+      <p>Eric Chan is a Senior Associate Consultant at Clarity Insights.</p>
+      <ul>
+        <li><a href="https://www.clarityinsights.com" target="_blank">Clarity Insights</a></li>
+        <li><a href="https://github.com/eChanClarityInsights" target="_blank">GitHub</a></li>
+        <li><a href="mailto:echan@clarityinsights.com" target="_blank">Email</a></li>
+      </ul>
+    </div>
+  </aside>
 
-            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href="https://echanclarityinsights.github.io/posts/2018/Nov/23/predicting-fake-news-with-99-accuracy/">Predicting Fake News with 99% Accuracy</a></h1>
-<footer class="post-info">
-        <abbr class="published" title="2018-11-23T14:30:00-06:00">
-                Published: Fri 23 November 2018
-        </abbr>
+  <main>
+    <header>
+      <p>
+      <a href="https://echanclarityinsights.github.io">Index</a> &brvbar; <a href="https://echanclarityinsights.github.io/archives.html">Archives</a>
+      &brvbar; <a href="https://echanclarityinsights.github.io/feeds/all.atom.xml">Atom</a>
+      </p>
+    </header>
 
-        <address class="vcard author">
-                By                         <a class="url fn" href="https://echanclarityinsights.github.io/author/eric-chan.html">Eric Chan</a>
-        </address>
-<p>In <a href="https://echanclarityinsights.github.io/category/data-science.html">Data Science</a>.</p>
-
-</footer><!-- /.post-info --><h4>tl;dr</h4>
+<article>
+  <div class="article_title">
+    <h1><a href="https://echanclarityinsights.github.io/posts/2018/Nov/23/predicting-fake-news-with-99-accuracy/">Predicting Fake News with 99% Accuracy</a></h1>
+  </div>
+  <div class="article_text">
+    <h4>tl;dr</h4>
 <p>I built a classifier using AI and natural language processing that was 99%
 accurate in detecting whether news articles were real or fake news. I obtained
 the articles by web scraping real and fake news sites to download over
@@ -47,102 +72,19 @@ Fake News Words</p>
 
 <!-- <p style="clear: both;">   -->
 
-<h4>Introduction</h4>
-<p>A large chemical company keeps its employees up to date on news by compiling a
-list of news articles to send to its staff. Recently, its news feed has been
-infiltrated by fake news articles. I used AI and Natural Language Processing to
-build a classifier to separate the genuine articles from the fake news articles.  </p>
-<h4>The Blacklist</h4>
-<p>The company provided a list of sites on its "blacklist". These were sites that
-they flagged as sources of fake news. At first glance, articles on these sites
-appear to be real news. But closer examination reveals otherwise. Here is an
-excerpt of an article from one of the sites on the blacklist <a href="http://nbpostgazette.com/">nbpostgazette</a>:  </p>
-<blockquote cite="http://nbpostgazette.com">
-Growing opportunity for startups in the Fuel Dispensers industry<br><br>
+<h4>Introduction …</h4>
+  </div>
+</article>
 
-Questale released a detailed assessment of trends in Fuel Dispensers market.
-The research report includes diverse topics like total market size, key market
-drivers, challenges, growth opportunities, key players etc. We have also
-covered key market updates, the impact of regulations and technological updates.
-New startups entering the space of Fuel Dispensers need to carefully
-pick their niches and genres so that they can compete on an equal footing with
-global companies who have an end to end development studios, production
-capabilities and global skills and experience backing them.<br><br.  
+<footer>
+<div id="paginator">
 
-The research will provide a forecast for Fuel Dispensers market till 2022.
-The report is vital for anyone involved in the Fuel Dispensers industry. The
-study gives a very comprehensive outlook of the entire market.  <br><br>
+</div>
+</footer>
 
-You can get free access to samples from the report here: https://questale.com/report/fuel-dispensers-market-report-by-company-regions-types-and-applications-global-status-and-forecast-to-2025/303479
-</blockquote>
-
-<h4>Building a data set</h4>
-<p>I built a web scraper to download over 600 news articles from real news
-sources (e.g. NY Times, FiveThirtyEight, Reuters) and fake news sources using
-the company's blacklist (e.g. NBPostGazette, JournalismDay, SatPRNews).  </p>
-<p>I prepared the articles for building a classifier by removing stop words (words
-such as <strong>and</strong>, <strong>the</strong>, and <strong>I</strong> that don't convey much information),
-converting all words to lowercase, and removing punctuation.  </p>
-<h4>Counting the words in each article</h4>
-<p>Counting the words in each article is the key step that quantifies our text
-data into a numerical format for modeling.  </p>
-<p>I used a method of quantifying article word counts called term frequency
-inverse document frequency (TF-IDF).  </p>
-<p>Term frequency represents how important each word is in an article. It is a
-rate statistic.  </p>
-<p>Inverse document frequency penalizes words that appear in many articles. The
-idea is that words that occur in many articles are less informative than those<br>
-that occur only in a small number of the articles.  </p>
-<p>TF-IDF multiplies term frequency by inverse document frequency to quantify the
-importance of each word in each article.  </p>
-<h4>Naive Bayes</h4>
-<p>Naive Bayes is a fast, accurate, and easy to implement classifier often used in
-text classification. It is based on Bayes' theorem and the <strong>naive</strong> part comes
-from the assumption that the features in the dataset are independent.</p>
-<p>We are interested in calculating the posterior probabilities: <strong>What is the
-probability that an article is fake news given the words in the article?</strong></p>
-<p>Naive Bayes looks at the TF-IDF score for each article and uses those numbers
-to identify words correlated with real news and fake news.   </p>
-<h4>Results</h4>
-<p>The classifier misclassified one out of 127 articles in the test set. It
-correctly classified all 27 fake news articles in the test set.  </p>
-<p>This is a <a href="https://github.com/eChanClarityInsights/Fake-News-Classifier"
-target="_blank">github</a> link with all the code used in this project.  </p><p>There are <a href="https://echanclarityinsights.github.io/posts/2018/Nov/23/predicting-fake-news-with-99-accuracy/#disqus_thread">comments</a>.</p>                </article>
-            </aside><!-- /#featured -->
-        <section id="extras" class="body">
-                <div class="blogroll">
-                        <h2>links</h2>
-                        <ul>
-                            <li><a href="https://www.clarityinsights.com">Clarity Insights</a></li>
-                            <li><a href="https://github.com/eChanClarityInsights">GitHub</a></li>
-                            <li><a href="mailto:echan@clarityinsights.com">Email</a></li>
-                        </ul>
-                </div><!-- /.blogroll -->
-                <div class="social">
-                        <h2>social</h2>
-                        <ul>
-                            <li><a href="https://echanclarityinsights.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
-
-                        </ul>
-                </div><!-- /.social -->
-        </section><!-- /#extras -->
-
-        <footer id="contentinfo" class="body">
-                <address id="about" class="vcard body">
-                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
-                </address><!-- /#about -->
-
-                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
-        </footer><!-- /#contentinfo -->
-
-<script type="text/javascript">
-    var disqus_shortname = 'echanclarityinsights-github-io-1';
-    (function () {
-        var s = document.createElement('script'); s.async = true;
-        s.type = 'text/javascript';
-        s.src = 'https://' + disqus_shortname + '.disqus.com/count.js';
-        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-    }());
-</script>
+    <div id="ending_message">
+      <p>&copy; Eric Chan. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+    </div>
+  </main>
 </body>
 </html>
