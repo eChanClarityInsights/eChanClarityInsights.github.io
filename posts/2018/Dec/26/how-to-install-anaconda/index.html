@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="https://echanclarityinsights.github.io/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="https://echanclarityinsights.github.io/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="https://echanclarityinsights.github.io/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Eric Chan">
+  <meta name="description" content="Posts and writings by Eric Chan">
+
+  <link href="https://echanclarityinsights.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Eric Chan @ Clarity Insights Atom" />
+
+<meta name="keywords" content="">
+
+  <title>
+    Eric Chan @ Clarity Insights
+&ndash; How to Install Anaconda  </title>
+
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="https://echanclarityinsights.github.io">
+        <img src="/images/eric.jpg" alt="logo">
+      </a>
+      <h2><a href="https://echanclarityinsights.github.io">Eric Chan</a></h2>
+      <p>Eric Chan is a Senior Associate Consultant at Clarity Insights.</p>
+      <ul>
+        <li><a href="https://www.clarityinsights.com" target="_blank">Clarity Insights</a></li>
+        <li><a href="https://github.com/eChanClarityInsights" target="_blank">GitHub</a></li>
+        <li><a href="mailto:echan@clarityinsights.com" target="_blank">Email</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      <a href="https://echanclarityinsights.github.io">Index</a> &brvbar; <a href="https://echanclarityinsights.github.io/archives.html">Archives</a>
+      &brvbar; <a href="https://echanclarityinsights.github.io/feeds/all.atom.xml">Atom</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="https://echanclarityinsights.github.io/posts/2018/Dec/26/how-to-install-anaconda/">How to Install Anaconda</a></h1>
+  </div>
+  <div class="article_text">
+    <p><img alt="Minions Meme" src="/images/2018-12-26/minions-meme.jpg" width="500px"></p>
+<h2>What is Anaconda?</h2>
+<p>A open-source distribution of Python that simplifies package management. It
+comes with applications such as Jupyter Notebook, the Conda environment manager,
+and Pip for package installation and management.  </p>
+<p>Anaconda also comes with hundreds of Python packages such as matplotlib, NumPy,
+and scikit-learn.</p>
+<p>It eliminates the need to install common applications separately and will make
+installing Python on your computer much easier.  </p>
+<h4>Download &amp; Installation</h4>
+<p><a href="https://www.anaconda.com/">Download Anaconda</a>. I downloaded the Python 3.7
+version for 64-Bit Graphical Installer. If you're using Windows, type this in
+the command prompt:  </p>
+<div class="highlight"><pre><span></span>cmd&gt; wmic os get osarchitecture
+</pre></div>
+
+
+<p>While installing, check the box that will "Add Anaconda to my PATH environment
+variable". The message says this is not recommended but we check it anyway. It
+will save us the step of setting our PATH manually. If you have a previous
+version of Python installed, checking this will supersede your previous
+installation.</p>
+<p>The installation process might take some time. It took about 30 minutes on my
+machine.  </p>
+<h4>Check your installation</h4>
+<p>Open a new command prompt and type the following:</p>
+<div class="highlight"><pre><span></span>cmd&gt; where python
+</pre></div>
+
+
+<p>The output should point to where the python.exe file where Anaconda was
+installed.</p>
+<div class="highlight"><pre><span></span>cmd&gt; python
+</pre></div>
+
+
+<p>This will open up the Python interactive shell.  </p>
+<p>Happy developing! </p>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Wed 26 December 2018</p>
+    <p>Category: <a href="https://echanclarityinsights.github.io/category/python.html">Python</a>
+    </p>
+  </div>
+
+  <div id="article_comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_identifier = "posts/2018/Dec/26/how-to-install-anaconda/";
+        (function() {
+             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+             dsq.src = '//echanclarityinsights-github-io-1.disqus.com/embed.js';
+             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+         })();
+    </script>
+  </div>
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; Eric Chan. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+    </div>
+  </main>
+</body>
+</html>

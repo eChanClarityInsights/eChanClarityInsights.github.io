@@ -1,14 +1,140 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Eric Chan @ Clarity Insights</title><link href="https://echanclarityinsights.github.io/" rel="alternate"></link><link href="https://echanclarityinsights.github.io/feeds/all.atom.xml" rel="self"></link><id>https://echanclarityinsights.github.io/</id><updated>2018-12-23T14:30:00-06:00</updated><entry><title>Yes, you can install Spark on your computer</title><link href="https://echanclarityinsights.github.io/posts/2018/Dec/23/yes-you-can-install-spark-on-your-computer/" rel="alternate"></link><published>2018-12-23T14:30:00-06:00</published><updated>2018-12-23T14:30:00-06:00</updated><author><name>Eric Chan</name></author><id>tag:echanclarityinsights.github.io,2018-12-23:/posts/2018/Dec/23/yes-you-can-install-spark-on-your-computer/</id><summary type="html">&lt;p&gt;&lt;img alt="Spark Meme" src="/images/2018-12-23/spark-meme.jpg" width="500px"&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Eric Chan @ Clarity Insights</title><link href="https://echanclarityinsights.github.io/" rel="alternate"></link><link href="https://echanclarityinsights.github.io/feeds/all.atom.xml" rel="self"></link><id>https://echanclarityinsights.github.io/</id><updated>2018-12-26T14:35:00-06:00</updated><entry><title>How to Run Spark on Jupyter Notebook</title><link href="https://echanclarityinsights.github.io/posts/2018/Dec/26/how-to-run-spark-on-jupyter-notebook/" rel="alternate"></link><published>2018-12-26T14:35:00-06:00</published><updated>2018-12-26T14:35:00-06:00</updated><author><name>Eric Chan</name></author><id>tag:echanclarityinsights.github.io,2018-12-26:/posts/2018/Dec/26/how-to-run-spark-on-jupyter-notebook/</id><summary type="html">&lt;p&gt;&lt;img alt="Cat Meme" src="/images/2018-12-26/cat-meme.jpg"&gt;&lt;/p&gt;
+&lt;h2&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;This post is about setting up Spark to run on a Jupyter Notebook on a
+computer running Windows 10.  &lt;/p&gt;
+&lt;p&gt;To follow along with this post, you should already have Java (JDK 8), Spark,
+Python, and Jupyter Notebook installed on your machine.  &lt;/p&gt;
+&lt;p&gt;If you need help with those things, here …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="Cat Meme" src="/images/2018-12-26/cat-meme.jpg"&gt;&lt;/p&gt;
+&lt;h2&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;This post is about setting up Spark to run on a Jupyter Notebook on a
+computer running Windows 10.  &lt;/p&gt;
+&lt;p&gt;To follow along with this post, you should already have Java (JDK 8), Spark,
+Python, and Jupyter Notebook installed on your machine.  &lt;/p&gt;
+&lt;p&gt;If you need help with those things, here are some helpful links:  &lt;/p&gt;
+&lt;p&gt;&lt;a href="../../23/how-to-install-java"&gt;How to Install Java (JDK 8)&lt;/a&gt;&lt;br&gt;
+&lt;a href="../../23/yes-you-can-install-spark-on-your-computer"&gt;How to Install Spark&lt;/a&gt;&lt;br&gt;
+&lt;a href="../how-to-install-anaconda"&gt;How to Install Anaconda (Python &amp;amp; Jupyter Notebook)&lt;/a&gt;  &lt;/p&gt;
+&lt;h3&gt;What is Jupyter Notebook?&lt;/h3&gt;
+&lt;p&gt;An open-source web app that can run code. Code is written in cells that are
+individually executed. Developers can execute a specific block of code without
+having to execute code from the start of the script.  &lt;/p&gt;
+&lt;h2&gt;Step 2a&lt;/h2&gt;
+&lt;h4&gt;Pyspark&lt;/h4&gt;
+&lt;h4&gt;Open a Jupyter Notebook and select Python kernel&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cmd&amp;gt; jupyter notebook  
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="Python Kernel" src="/images/2018-12-26/python-kernel.PNG"&gt;&lt;/p&gt;
+&lt;h4&gt;Execute Spark code!&lt;/h4&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3
+4
+5
+6&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;findspark&lt;/span&gt;
+&lt;span class="n"&gt;findspark&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;init&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pyspark&lt;/span&gt;
+&lt;span class="n"&gt;sc&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;pyspark&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;SparkContext&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;appName&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;myApp&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;sc&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;parallelize&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;collect&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;&lt;img alt="Python Kerenel" src="/images/2018-12-26/spark-python.PNG"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Note - I tried doing this using Spark 2.4 and encountered the following
+error: &lt;code&gt;Python worker failed to connect back&lt;/code&gt;. I switched to Spark 2.3.2 and
+was able to execute Spark code with no errors.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;h2&gt;Step 2b&lt;/h2&gt;
+&lt;h4&gt;Spark - Scala&lt;/h4&gt;
+&lt;p&gt;This step is to if you want to develop in Spark using Scala.  &lt;/p&gt;
+&lt;h4&gt;Install spylon-kernel using pip&lt;/h4&gt;
+&lt;p&gt;Type the following in a command prompt:  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cmd&amp;gt; pip install spylon-kernel
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;Create a kernel spec&lt;/h4&gt;
+&lt;p&gt;This allows us to select a Scala kerenel in a Jupyter Notebook.  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cmd&amp;gt; python -m spylon_kernel install
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;Open a Jupyter Notebook and select spylon-kernel.&lt;/h4&gt;
+&lt;h2&gt;&lt;img alt="Spylon Kernel" src="/images/2018-12-26/spylon-kernel.PNG" width="600px"&gt;&lt;/h2&gt;
+&lt;h4&gt;Execute Spark code!&lt;/h4&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;val&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="k"&gt;=&lt;/span&gt; &lt;span class="n"&gt;sc&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;parallelize&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;collect&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;&lt;img alt="Spark Scala" src="/images/2018-12-26/spark-scala.PNG" width="600px"&gt;  &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Note - I get a warning &lt;code&gt;Unable to load native-hadoop library for your platform...using
+builtin-java classes where applicable&lt;/code&gt;. This will be an issue if you connect to
+a Hadoop cluster with Kerberos authentication but for our purposes, we can
+ignore this.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Happy developing!&lt;/p&gt;</content></entry><entry><title>How to Install Anaconda</title><link href="https://echanclarityinsights.github.io/posts/2018/Dec/26/how-to-install-anaconda/" rel="alternate"></link><published>2018-12-26T14:30:00-06:00</published><updated>2018-12-26T14:30:00-06:00</updated><author><name>Eric Chan</name></author><id>tag:echanclarityinsights.github.io,2018-12-26:/posts/2018/Dec/26/how-to-install-anaconda/</id><summary type="html">&lt;p&gt;&lt;img alt="Minions Meme" src="/images/2018-12-26/minions-meme.jpg" width="500px"&gt;&lt;/p&gt;
+&lt;h2&gt;What is Anaconda?&lt;/h2&gt;
+&lt;p&gt;A open-source distribution of Python that simplifies package management. It
+comes with applications such as Jupyter Notebook, the Conda environment manager,
+and Pip for package installation and management.  &lt;/p&gt;
+&lt;p&gt;Anaconda also comes with hundreds of Python packages such as matplotlib, NumPy,
+and scikit-learn.&lt;/p&gt;
+&lt;p&gt;It eliminates the need to …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="Minions Meme" src="/images/2018-12-26/minions-meme.jpg" width="500px"&gt;&lt;/p&gt;
+&lt;h2&gt;What is Anaconda?&lt;/h2&gt;
+&lt;p&gt;A open-source distribution of Python that simplifies package management. It
+comes with applications such as Jupyter Notebook, the Conda environment manager,
+and Pip for package installation and management.  &lt;/p&gt;
+&lt;p&gt;Anaconda also comes with hundreds of Python packages such as matplotlib, NumPy,
+and scikit-learn.&lt;/p&gt;
+&lt;p&gt;It eliminates the need to install common applications separately and will make
+installing Python on your computer much easier.  &lt;/p&gt;
+&lt;h4&gt;Download &amp;amp; Installation&lt;/h4&gt;
+&lt;p&gt;&lt;a href="https://www.anaconda.com/"&gt;Download Anaconda&lt;/a&gt;. I downloaded the Python 3.7
+version for 64-Bit Graphical Installer. If you're using Windows, type this in
+the command prompt:  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cmd&amp;gt; wmic os get osarchitecture
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;While installing, check the box that will "Add Anaconda to my PATH environment
+variable". The message says this is not recommended but we check it anyway. It
+will save us the step of setting our PATH manually. If you have a previous
+version of Python installed, checking this will supersede your previous
+installation.&lt;/p&gt;
+&lt;p&gt;The installation process might take some time. It took about 30 minutes on my
+machine.  &lt;/p&gt;
+&lt;h4&gt;Check your installation&lt;/h4&gt;
+&lt;p&gt;Open a new command prompt and type the following:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cmd&amp;gt; where python
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The output should point to where the python.exe file where Anaconda was
+installed.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cmd&amp;gt; python
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This will open up the Python interactive shell.  &lt;/p&gt;
+&lt;p&gt;Happy developing! &lt;/p&gt;</content></entry><entry><title>Yes, you can install Spark on your computer</title><link href="https://echanclarityinsights.github.io/posts/2018/Dec/23/yes-you-can-install-spark-on-your-computer/" rel="alternate"></link><published>2018-12-23T14:30:00-06:00</published><updated>2018-12-23T14:30:00-06:00</updated><author><name>Eric Chan</name></author><id>tag:echanclarityinsights.github.io,2018-12-23:/posts/2018/Dec/23/yes-you-can-install-spark-on-your-computer/</id><summary type="html">&lt;p&gt;&lt;img alt="Spark Meme" src="/images/2018-12-23/spark-meme.jpg" width="500px"&gt;&lt;/p&gt;
+&lt;h2&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;This post is about installing Spark on a computer running Windows 10.  &lt;/p&gt;
+&lt;p&gt;If you want to run PySpark, you must have Python installed on your machine. If
+you need help with that, refer to this:&lt;br&gt;
+&lt;a href="../../26/how-to-install-anaconda"&gt;How to Install Anaconda (Python)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;If you only want install Spark (Scala), you can …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="Spark Meme" src="/images/2018-12-23/spark-meme.jpg" width="500px"&gt;&lt;/p&gt;
+&lt;h2&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;This post is about installing Spark on a computer running Windows 10.  &lt;/p&gt;
+&lt;p&gt;If you want to run PySpark, you must have Python installed on your machine. If
+you need help with that, refer to this:&lt;br&gt;
+&lt;a href="../../26/how-to-install-anaconda"&gt;How to Install Anaconda (Python)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;If you only want install Spark (Scala), you can proceed to the installation.  &lt;/p&gt;
 &lt;h2&gt;Step 1 - Install Java&lt;/h2&gt;
 &lt;h4&gt;Java Development Kit 8 (JDK 8) is already installed&lt;/h4&gt;
-&lt;p&gt;If JDK 8 is already install on your machine skip to step 2.&lt;/p&gt;
-&lt;h4&gt;How do I check if JDK 8 is installed on my machine?&lt;/h4&gt;
-&lt;p&gt;Open a windows command prompt and type the following:  &lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cmd&amp;gt; java -version …&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="Spark Meme" src="/images/2018-12-23/spark-meme.jpg" width="500px"&gt;&lt;/p&gt;
-&lt;h2&gt;Step 1 - Install Java&lt;/h2&gt;
-&lt;h4&gt;Java Development Kit 8 (JDK 8) is already installed&lt;/h4&gt;
-&lt;p&gt;If JDK 8 is already install on your machine skip to step 2.&lt;/p&gt;
+&lt;p&gt;If JDK 8 is already installed on your machine skip to step 2.&lt;/p&gt;
 &lt;h4&gt;How do I check if JDK 8 is installed on my machine?&lt;/h4&gt;
 &lt;p&gt;Open a windows command prompt and type the following:  &lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cmd&amp;gt; java -version  
@@ -30,20 +156,23 @@ download and install JDK 8.&lt;/p&gt;
 &lt;h2&gt;Step 2&lt;/h2&gt;
 &lt;h4&gt;Download Spark&lt;/h4&gt;
 &lt;p&gt;Download &amp;amp; Install &lt;a href="https://spark.apache.org/downloads.html"&gt;Spark&lt;/a&gt;. I chose
-the default Spark version and package type which was Spark 2.4 for Hadoop 2.7
-and later.
+Spark version 2.3.2 and package type for Hadoop 2.7 and later.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Note - I did not choose Spark versions newer than 2.3.2 because I received a
+&lt;code&gt;Python worker failed to connect back&lt;/code&gt; error when using PySpark. Spark 2.3.2
+ran PySpark with no errors.&lt;/em&gt;&lt;/strong&gt;  &lt;/p&gt;
 &lt;p style="float: left; font-size: 9pt; text-align: center; width: 98%;
 margin-right: 1%; margin-bottom: 0.5em;"&gt;
 &lt;img src="/images/2018-12-23/spark-install.PNG" alt="Spark Download"
 style="width: 100%" border="2"&gt;
-Spark Download Page&lt;/p&gt;&lt;/p&gt;
+Spark Download Page&lt;/p&gt;
+
 &lt;h3&gt;Set SPARK_HOME and add to PATH&lt;/h3&gt;
 &lt;p&gt;Find where Spark was installed on your computer. Spark was downloaded and
 extracted to my &lt;code&gt;Downloads&lt;/code&gt; directory. &lt;code&gt;SPARK_HOME&lt;/code&gt; needs to point to your root
 Spark directory. The &lt;code&gt;PATH&lt;/code&gt; should contain &lt;code&gt;SPARK_HOME\bin&lt;/code&gt;. I used the
 following to set my &lt;code&gt;SPARK_HOME&lt;/code&gt; environment variable and add &lt;code&gt;SPARK_HOME&lt;/code&gt; to
 my &lt;code&gt;PATH&lt;/code&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cmd&amp;gt; setx SPARK_HOME &amp;quot;C:\Users\echan\Downloads\spark-2.4.0-bin-hadoop2.7&amp;quot;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cmd&amp;gt; setx SPARK_HOME &amp;quot;C:\Users\echan\Downloads\spark-2.3.2-bin-hadoop2.7&amp;quot;
 cmd&amp;gt; setx PATH &amp;quot;%SPARK_HOME%\bin;%PATH%&amp;quot;
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -57,9 +186,9 @@ cmd&amp;gt; for %a in (&amp;quot;%path:;=&amp;quot;;&amp;quot;%&amp;quot;) do @e
 
 
 &lt;p&gt;You should see something like the following output:  &lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;C:\Users\echan\Downloads\spark-2.4.0-bin-hadoop2.7
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;C:\Users\echan\Downloads\spark-2.3.2-bin-hadoop2.7
 // this should appear somewhere in your PATH
-C:\Users\echan\Downloads\spark-2.4.0-bin-hadoop2.7\bin
+C:\Users\echan\Downloads\spark-2.3.2-bin-hadoop2.7\bin
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -67,37 +196,69 @@ C:\Users\echan\Downloads\spark-2.4.0-bin-hadoop2.7\bin
 &lt;h4&gt;Download winutils&lt;/h4&gt;
 &lt;p&gt;Download &lt;a href="https://github.com/steveloughran/winutils"&gt;winutils.exe&lt;/a&gt;. Choose the
 winutils version corresponding to your package type (I used hadoop-2.7.1).
-Navigate to &lt;code&gt;hadoop-2.7.1/bin&lt;/code&gt; and download the &lt;code&gt;winutils.exe&lt;/code&gt; file. Move this&lt;br&gt;
-file to your &lt;code&gt;SPARK_HOME/bin&lt;/code&gt; directory.  &lt;/p&gt;
-&lt;h3&gt;Set HADOOP_HOME&lt;/h3&gt;
+Navigate to the &lt;code&gt;hadoop-2.7.1/bin&lt;/code&gt; directory and download the &lt;code&gt;winutils.exe&lt;/code&gt;
+file. Move this file to your &lt;code&gt;SPARK_HOME/bin&lt;/code&gt; directory.  &lt;/p&gt;
+&lt;h4&gt;Set HADOOP_HOME&lt;/h4&gt;
 &lt;p&gt;Set your &lt;code&gt;HADOOP_HOME&lt;/code&gt; environment variable to your Spark root directory.  &lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cmd&amp;gt; setx HADOOP_HOME &amp;quot;C:\Users\echan\Downloads\spark-2.4.0-bin-hadoop2.7&amp;quot;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cmd&amp;gt; setx HADOOP_HOME &amp;quot;C:\Users\echan\Downloads\spark-2.3.2-bin-hadoop2.7&amp;quot;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Restart your command prompt for the changes to your environment variables to
-take effect.&lt;/p&gt;
-&lt;h3&gt;Create hive directory&lt;/h3&gt;
+&lt;p&gt;Restart your command prompt and verify that your environment were set.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cmd&amp;gt; echo %HADOOP_HOME%
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;You should see something like the following output:  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;C:\Users\echan\Downloads\spark-2.3.2-bin-hadoop2.7
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;Create hive directory&lt;/h4&gt;
+&lt;p&gt;The Hive directory is used to store tables in Spark.  &lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cmb&amp;gt; mkdir C:\tmp\hive
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h3&gt;Add permissions to the hive directory&lt;/h3&gt;
+&lt;h4&gt;Add permissions to the hive directory&lt;/h4&gt;
 &lt;p&gt;Using winutils.exe add full permissions to the &lt;code&gt;\tmp\hive&lt;/code&gt; directory&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cmd&amp;gt; %HADOOP_HOME%\bin\winutils.exe chmod 777 /tmp/hive
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h3&gt;Start Spark&lt;/h3&gt;
+&lt;h4&gt;Start PySpark and execute Spark code&lt;/h4&gt;
+&lt;p&gt;From the command prompt:  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cmd&amp;gt; pyspark  
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;In PySpark Shell: &lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;sc&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;parallelize&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;collect&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;&lt;img alt="Pyspark Shell" src="/images/2018-12-23/pyspark-shell.PNG"&gt;  &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Note - I get a warning &lt;code&gt;Unable to load native-hadoop library for your platform...using
+builtin-java classes where applicable&lt;/code&gt;. This will be an issue if you connect to
+a Hadoop cluster with Kerberos authentication but for our purposes, we can
+ignore this.&lt;/em&gt;&lt;/strong&gt;  &lt;/p&gt;
+&lt;h4&gt;Start Spark (Scala) and execute Spark code&lt;/h4&gt;
+&lt;p&gt;From the command prompt:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cmd&amp;gt; spark-shell
 &lt;/pre&gt;&lt;/div&gt;
 
 
+&lt;p&gt;In Spark Shell:  &lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;scala&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="k"&gt;val&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="k"&gt;=&lt;/span&gt; &lt;span class="n"&gt;sc&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;parallelize&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;scala&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;collect&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
 &lt;p&gt;&lt;img alt="spark-shell" src="/images/2018-12-23/spark-shell.PNG" width="700px"&gt;&lt;/p&gt;
-&lt;p&gt;I get a warning &lt;code&gt;Unable to load native-hadoop library for your platform...using
-builtin-java classes where applicable&lt;/code&gt;. This will be an issue if you connect to
-a Hadoop cluster with Kerberos authentication but for our purposes, we can
-ignore this.  &lt;/p&gt;</content></entry><entry><title>How to Install Java</title><link href="https://echanclarityinsights.github.io/posts/2018/Dec/23/how-to-install-java/" rel="alternate"></link><published>2018-12-23T13:30:00-06:00</published><updated>2018-12-23T13:30:00-06:00</updated><author><name>Eric Chan</name></author><id>tag:echanclarityinsights.github.io,2018-12-23:/posts/2018/Dec/23/how-to-install-java/</id><summary type="html">&lt;p&gt;&lt;img alt="Java Meme" src="/images/2018-12-23/java-meme.jpg" width="500px"&gt;&lt;/p&gt;
+&lt;p&gt;Happy developing!&lt;/p&gt;</content></entry><entry><title>How to Install Java</title><link href="https://echanclarityinsights.github.io/posts/2018/Dec/23/how-to-install-java/" rel="alternate"></link><published>2018-12-23T13:30:00-06:00</published><updated>2018-12-23T13:30:00-06:00</updated><author><name>Eric Chan</name></author><id>tag:echanclarityinsights.github.io,2018-12-23:/posts/2018/Dec/23/how-to-install-java/</id><summary type="html">&lt;p&gt;&lt;img alt="Java Meme" src="/images/2018-12-23/java-meme.jpg" width="500px"&gt;&lt;/p&gt;
 &lt;h4&gt;Download &amp;amp; Install Java&lt;/h4&gt;
 &lt;p&gt;Download &amp;amp; Install &lt;a href="https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html"&gt;Java Development Kit 8&lt;/a&gt;.
 To figure out which version of Java I need to download, I check my windows

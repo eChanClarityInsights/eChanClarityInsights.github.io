@@ -55,9 +55,15 @@
   </div>
   <div class="article_text">
     <p><img alt="Spark Meme" src="/images/2018-12-23/spark-meme.jpg" width="500px"></p>
+<h2>Introduction</h2>
+<p>This post is about installing Spark on a computer running Windows 10.  </p>
+<p>If you want to run PySpark, you must have Python installed on your machine. If
+you need help with that, refer to this:<br>
+<a href="../../26/how-to-install-anaconda">How to Install Anaconda (Python)</a></p>
+<p>If you only want install Spark (Scala), you can proceed to the installation.  </p>
 <h2>Step 1 - Install Java</h2>
 <h4>Java Development Kit 8 (JDK 8) is already installed</h4>
-<p>If JDK 8 is already install on your machine skip to step 2.</p>
+<p>If JDK 8 is already installed on your machine skip to step 2.</p>
 <h4>How do I check if JDK 8 is installed on my machine?</h4>
 <p>Open a windows command prompt and type the following:  </p>
 <div class="highlight"><pre><span></span>cmd&gt; java -version  
@@ -79,20 +85,23 @@ download and install JDK 8.</p>
 <h2>Step 2</h2>
 <h4>Download Spark</h4>
 <p>Download &amp; Install <a href="https://spark.apache.org/downloads.html">Spark</a>. I chose
-the default Spark version and package type which was Spark 2.4 for Hadoop 2.7
-and later.
+Spark version 2.3.2 and package type for Hadoop 2.7 and later.</p>
+<p><strong><em>Note - I did not choose Spark versions newer than 2.3.2 because I received a
+<code>Python worker failed to connect back</code> error when using PySpark. Spark 2.3.2
+ran PySpark with no errors.</em></strong>  </p>
 <p style="float: left; font-size: 9pt; text-align: center; width: 98%;
 margin-right: 1%; margin-bottom: 0.5em;">
 <img src="/images/2018-12-23/spark-install.PNG" alt="Spark Download"
 style="width: 100%" border="2">
-Spark Download Page</p></p>
+Spark Download Page</p>
+
 <h3>Set SPARK_HOME and add to PATH</h3>
 <p>Find where Spark was installed on your computer. Spark was downloaded and
 extracted to my <code>Downloads</code> directory. <code>SPARK_HOME</code> needs to point to your root
 Spark directory. The <code>PATH</code> should contain <code>SPARK_HOME\bin</code>. I used the
 following to set my <code>SPARK_HOME</code> environment variable and add <code>SPARK_HOME</code> to
 my <code>PATH</code></p>
-<div class="highlight"><pre><span></span>cmd&gt; setx SPARK_HOME &quot;C:\Users\echan\Downloads\spark-2.4.0-bin-hadoop2.7&quot;
+<div class="highlight"><pre><span></span>cmd&gt; setx SPARK_HOME &quot;C:\Users\echan\Downloads\spark-2.3.2-bin-hadoop2.7&quot;
 cmd&gt; setx PATH &quot;%SPARK_HOME%\bin;%PATH%&quot;
 </pre></div>
 
@@ -106,9 +115,9 @@ cmd&gt; for %a in (&quot;%path:;=&quot;;&quot;%&quot;) do @echo %~a
 
 
 <p>You should see something like the following output:  </p>
-<div class="highlight"><pre><span></span>C:\Users\echan\Downloads\spark-2.4.0-bin-hadoop2.7
+<div class="highlight"><pre><span></span>C:\Users\echan\Downloads\spark-2.3.2-bin-hadoop2.7
 // this should appear somewhere in your PATH
-C:\Users\echan\Downloads\spark-2.4.0-bin-hadoop2.7\bin
+C:\Users\echan\Downloads\spark-2.3.2-bin-hadoop2.7\bin
 </pre></div>
 
 
@@ -116,37 +125,69 @@ C:\Users\echan\Downloads\spark-2.4.0-bin-hadoop2.7\bin
 <h4>Download winutils</h4>
 <p>Download <a href="https://github.com/steveloughran/winutils">winutils.exe</a>. Choose the
 winutils version corresponding to your package type (I used hadoop-2.7.1).
-Navigate to <code>hadoop-2.7.1/bin</code> and download the <code>winutils.exe</code> file. Move this<br>
-file to your <code>SPARK_HOME/bin</code> directory.  </p>
-<h3>Set HADOOP_HOME</h3>
+Navigate to the <code>hadoop-2.7.1/bin</code> directory and download the <code>winutils.exe</code>
+file. Move this file to your <code>SPARK_HOME/bin</code> directory.  </p>
+<h4>Set HADOOP_HOME</h4>
 <p>Set your <code>HADOOP_HOME</code> environment variable to your Spark root directory.  </p>
-<div class="highlight"><pre><span></span>cmd&gt; setx HADOOP_HOME &quot;C:\Users\echan\Downloads\spark-2.4.0-bin-hadoop2.7&quot;
+<div class="highlight"><pre><span></span>cmd&gt; setx HADOOP_HOME &quot;C:\Users\echan\Downloads\spark-2.3.2-bin-hadoop2.7&quot;
 </pre></div>
 
 
-<p>Restart your command prompt for the changes to your environment variables to
-take effect.</p>
-<h3>Create hive directory</h3>
+<p>Restart your command prompt and verify that your environment were set.</p>
+<div class="highlight"><pre><span></span>cmd&gt; echo %HADOOP_HOME%
+</pre></div>
+
+
+<p>You should see something like the following output:  </p>
+<div class="highlight"><pre><span></span>C:\Users\echan\Downloads\spark-2.3.2-bin-hadoop2.7
+</pre></div>
+
+
+<h4>Create hive directory</h4>
+<p>The Hive directory is used to store tables in Spark.  </p>
 <div class="highlight"><pre><span></span>cmb&gt; mkdir C:\tmp\hive
 </pre></div>
 
 
-<h3>Add permissions to the hive directory</h3>
+<h4>Add permissions to the hive directory</h4>
 <p>Using winutils.exe add full permissions to the <code>\tmp\hive</code> directory</p>
 <div class="highlight"><pre><span></span>cmd&gt; %HADOOP_HOME%\bin\winutils.exe chmod 777 /tmp/hive
 </pre></div>
 
 
-<h3>Start Spark</h3>
+<h4>Start PySpark and execute Spark code</h4>
+<p>From the command prompt:  </p>
+<div class="highlight"><pre><span></span>cmd&gt; pyspark  
+</pre></div>
+
+
+<p>In PySpark Shell: </p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">parallelize</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+</pre></div>
+</td></tr></table>
+
+<p><img alt="Pyspark Shell" src="/images/2018-12-23/pyspark-shell.PNG">  </p>
+<p><strong><em>Note - I get a warning <code>Unable to load native-hadoop library for your platform...using
+builtin-java classes where applicable</code>. This will be an issue if you connect to
+a Hadoop cluster with Kerberos authentication but for our purposes, we can
+ignore this.</em></strong>  </p>
+<h4>Start Spark (Scala) and execute Spark code</h4>
+<p>From the command prompt:</p>
 <div class="highlight"><pre><span></span>cmd&gt; spark-shell
 </pre></div>
 
 
+<p>In Spark Shell:  </p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">a</span> <span class="k">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">parallelize</span><span class="o">(</span><span class="mi">1</span> <span class="n">to</span> <span class="mi">9</span><span class="o">)</span>
+<span class="n">scala</span><span class="o">&gt;</span> <span class="n">a</span><span class="o">.</span><span class="n">collect</span><span class="o">()</span>
+</pre></div>
+</td></tr></table>
+
 <p><img alt="spark-shell" src="/images/2018-12-23/spark-shell.PNG" width="700px"></p>
-<p>I get a warning <code>Unable to load native-hadoop library for your platform...using
-builtin-java classes where applicable</code>. This will be an issue if you connect to
-a Hadoop cluster with Kerberos authentication but for our purposes, we can
-ignore this.  </p>
+<p>Happy developing!</p>
   </div>
   <div class="article_meta">
     <p>Posted on: Sun 23 December 2018</p>

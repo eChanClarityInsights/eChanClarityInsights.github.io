@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Eric Chan @ Clarity Insights - Python</title><link href="https://echanclarityinsights.github.io/" rel="alternate"></link><link href="https://echanclarityinsights.github.io/feeds/python.atom.xml" rel="self"></link><id>https://echanclarityinsights.github.io/</id><updated>2018-12-26T14:30:00-06:00</updated><entry><title>How to Install Anaconda</title><link href="https://echanclarityinsights.github.io/posts/2018/Dec/26/how-to-install-anaconda/" rel="alternate"></link><published>2018-12-26T14:30:00-06:00</published><updated>2018-12-26T14:30:00-06:00</updated><author><name>Eric Chan</name></author><id>tag:echanclarityinsights.github.io,2018-12-26:/posts/2018/Dec/26/how-to-install-anaconda/</id><summary type="html">&lt;p&gt;&lt;img alt="Minions Meme" src="/images/2018-12-26/minions-meme.jpg" width="500px"&gt;&lt;/p&gt;
+&lt;h2&gt;What is Anaconda?&lt;/h2&gt;
+&lt;p&gt;A open-source distribution of Python that simplifies package management. It
+comes with applications such as Jupyter Notebook, the Conda environment manager,
+and Pip for package installation and management.  &lt;/p&gt;
+&lt;p&gt;Anaconda also comes with hundreds of Python packages such as matplotlib, NumPy,
+and scikit-learn.&lt;/p&gt;
+&lt;p&gt;It eliminates the need to …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="Minions Meme" src="/images/2018-12-26/minions-meme.jpg" width="500px"&gt;&lt;/p&gt;
+&lt;h2&gt;What is Anaconda?&lt;/h2&gt;
+&lt;p&gt;A open-source distribution of Python that simplifies package management. It
+comes with applications such as Jupyter Notebook, the Conda environment manager,
+and Pip for package installation and management.  &lt;/p&gt;
+&lt;p&gt;Anaconda also comes with hundreds of Python packages such as matplotlib, NumPy,
+and scikit-learn.&lt;/p&gt;
+&lt;p&gt;It eliminates the need to install common applications separately and will make
+installing Python on your computer much easier.  &lt;/p&gt;
+&lt;h4&gt;Download &amp;amp; Installation&lt;/h4&gt;
+&lt;p&gt;&lt;a href="https://www.anaconda.com/"&gt;Download Anaconda&lt;/a&gt;. I downloaded the Python 3.7
+version for 64-Bit Graphical Installer. If you're using Windows, type this in
+the command prompt:  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cmd&amp;gt; wmic os get osarchitecture
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;While installing, check the box that will "Add Anaconda to my PATH environment
+variable". The message says this is not recommended but we check it anyway. It
+will save us the step of setting our PATH manually. If you have a previous
+version of Python installed, checking this will supersede your previous
+installation.&lt;/p&gt;
+&lt;p&gt;The installation process might take some time. It took about 30 minutes on my
+machine.  &lt;/p&gt;
+&lt;h4&gt;Check your installation&lt;/h4&gt;
+&lt;p&gt;Open a new command prompt and type the following:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cmd&amp;gt; where python
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The output should point to where the python.exe file where Anaconda was
+installed.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cmd&amp;gt; python
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This will open up the Python interactive shell.  &lt;/p&gt;
+&lt;p&gt;Happy developing! &lt;/p&gt;</content></entry></feed>
