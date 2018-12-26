@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Eric Chan">
+  <meta name="description" content="Posts and writings by Eric Chan">
+
+
+<meta name="keywords" content="">
+
+  <title>
+    Eric Chan @ Clarity Insights
+&ndash; How to Run Spark on Jupyter Notebook  </title>
+
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="">
+        <img src="/images/eric.jpg" alt="logo">
+      </a>
+      <h2><a href="">Eric Chan</a></h2>
+      <p>Eric Chan is a Senior Associate Consultant at Clarity Insights.</p>
+      <ul>
+        <li><a href="https://www.clarityinsights.com" target="_blank">Clarity Insights</a></li>
+        <li><a href="https://github.com/eChanClarityInsights" target="_blank">GitHub</a></li>
+        <li><a href="mailto:echan@clarityinsights.com" target="_blank">Email</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      <a href="">Index</a> &brvbar; <a href="/archives.html">Archives</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="/posts/2018/Dec/26/how-to-run-spark-on-jupyter-notebook/">How to Run Spark on Jupyter Notebook</a></h1>
+  </div>
+  <div class="article_text">
+    <p><img alt="Cat Meme" src="/images/2018-12-26/cat-meme.jpg"></p>
+<h2>Introduction</h2>
+<p>This post is about setting up Spark to run on a Jupyter Notebook on a
+computer running Windows 10.  </p>
+<p>To follow along with this post, you should already have Java (JDK 8), Spark,
+Python, and Jupyter Notebook installed on your machine.  </p>
+<p>If you need help with those things, here are some helpful links:  </p>
+<p><a href="../../23/how-to-install-java">How to Install Java (JDK 8)</a><br>
+<a href="../../23/yes-you-can-install-spark-on-your-computer">How to Install Spark</a><br>
+<a href="../how-to-install-anaconda">How to Install Anaconda (Python &amp; Jupyter Notebook)</a>  </p>
+<h3>What is Jupyter Notebook?</h3>
+<p>An open-source web app that can run code. Code is written in cells that are
+individually executed. Developers can execute a specific block of code without
+having to execute code from the start of the script.  </p>
+<h2>Step 2a</h2>
+<h4>Pyspark</h4>
+<h4>Open a Jupyter Notebook and select Python kernel</h4>
+<div class="highlight"><pre><span></span>cmd&gt; jupyter notebook  
+</pre></div>
+
+
+<p><img alt="Python Kernel" src="/images/2018-12-26/python-kernel.PNG"></p>
+<h4>Execute Spark code!</h4>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">findspark</span>
+<span class="n">findspark</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
+<span class="kn">import</span> <span class="nn">pyspark</span>
+<span class="n">sc</span> <span class="o">=</span> <span class="n">pyspark</span><span class="o">.</span><span class="n">SparkContext</span><span class="p">(</span><span class="n">appName</span> <span class="o">=</span> <span class="s2">&quot;myApp&quot;</span><span class="p">)</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">parallelize</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">a</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+</pre></div>
+</td></tr></table>
+
+<p><img alt="Python Kerenel" src="/images/2018-12-26/spark-python.PNG"></p>
+<p><strong><em>Note - I tried doing this using Spark 2.4 and encountered the following
+error: <code>Python worker failed to connect back</code>. I switched to Spark 2.3.2 and
+was able to execute Spark code with no errors.</em></strong></p>
+<h2>Step 2b</h2>
+<h4>Spark - Scala</h4>
+<p>This step is to if you want to develop in Spark using Scala.  </p>
+<h4>Install spylon-kernel using pip</h4>
+<p>Type the following in a command prompt:  </p>
+<div class="highlight"><pre><span></span>cmd&gt; pip install spylon-kernel
+</pre></div>
+
+
+<h4>Create a kernel spec</h4>
+<p>This allows us to select a Scala kerenel in a Jupyter Notebook.  </p>
+<div class="highlight"><pre><span></span>cmd&gt; python -m spylon_kernel install
+</pre></div>
+
+
+<h4>Open a Jupyter Notebook and select spylon-kernel.</h4>
+<h2><img alt="Spylon Kernel" src="/images/2018-12-26/spylon-kernel.PNG" width="600px"></h2>
+<h4>Execute Spark code!</h4>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">a</span> <span class="k">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">parallelize</span><span class="o">(</span><span class="mi">1</span> <span class="n">to</span> <span class="mi">9</span><span class="o">)</span>
+<span class="n">a</span><span class="o">.</span><span class="n">collect</span><span class="o">()</span>
+</pre></div>
+</td></tr></table>
+
+<p><img alt="Spark Scala" src="/images/2018-12-26/spark-scala.PNG" width="600px">  </p>
+<p><strong><em>Note - I get a warning <code>Unable to load native-hadoop library for your platform...using
+builtin-java classes where applicable</code>. This will be an issue if you connect to
+a Hadoop cluster with Kerberos authentication but for our purposes, we can
+ignore this.</em></strong></p>
+<p>Happy developing!</p>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Wed 26 December 2018</p>
+    <p>Category: <a href="/category/spark.html">Spark</a>
+    </p>
+  </div>
+
+  <div id="article_comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_identifier = "posts/2018/Dec/26/how-to-run-spark-on-jupyter-notebook/";
+        (function() {
+             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+             dsq.src = '//echanclarityinsights-github-io-1.disqus.com/embed.js';
+             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+         })();
+    </script>
+  </div>
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; Eric Chan. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+    </div>
+  </main>
+</body>
+</html>
