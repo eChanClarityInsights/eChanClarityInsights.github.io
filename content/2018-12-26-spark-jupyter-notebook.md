@@ -21,8 +21,7 @@ An open-source web app that can run code. Code is written in cells that are
 individually executed. Developers can execute a specific block of code without
 having to execute code from the start of the script.  
 
-## Step 2a
-#### Pyspark
+## PySpark
 #### Open a Jupyter Notebook and select Python kernel  
 
 ```
@@ -47,7 +46,6 @@ a.collect()
 error: `Python worker failed to connect back`. I switched to Spark 2.3.2 and
 was able to execute Spark code with no errors.***
 
-## Step 2b  
 #### Spark - Scala
 This step is to if you want to develop in Spark using Scala.  
 
