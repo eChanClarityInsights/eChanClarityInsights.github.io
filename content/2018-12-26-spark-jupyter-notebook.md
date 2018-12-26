@@ -46,7 +46,7 @@ a.collect()
 error: `Python worker failed to connect back`. I switched to Spark 2.3.2 and
 was able to execute Spark code with no errors.***
 
-#### Spark - Scala
+## Spark - Scala
 This step is to if you want to develop in Spark using Scala.  
 
 #### Install spylon-kernel using pip  
