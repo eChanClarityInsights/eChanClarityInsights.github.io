@@ -45,7 +45,7 @@ having to execute code from the start of the script.  &lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;Note - I tried doing this using Spark 2.4 and encountered the following
 error: &lt;code&gt;Python worker failed to connect back&lt;/code&gt;. I switched to Spark 2.3.2 and
 was able to execute Spark code with no errors.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;h4&gt;Spark - Scala&lt;/h4&gt;
+&lt;h2&gt;Spark - Scala&lt;/h2&gt;
 &lt;p&gt;This step is to if you want to develop in Spark using Scala.  &lt;/p&gt;
 &lt;h4&gt;Install spylon-kernel using pip&lt;/h4&gt;
 &lt;p&gt;Type the following in a command prompt:  &lt;/p&gt;

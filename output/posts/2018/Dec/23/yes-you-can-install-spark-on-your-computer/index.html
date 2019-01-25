@@ -3,11 +3,11 @@
 
 <head>
   <!-- ## for client-side less
-  <link rel="stylesheet/less" type="text/css" href="https://echanclarityinsights.github.io/theme/css/style.less">
+  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
   <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
   -->
-  <link rel="stylesheet" type="text/css" href="https://echanclarityinsights.github.io/theme/css/style.css">
-  <link rel="stylesheet" type="text/css" href="https://echanclarityinsights.github.io/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
 
   <meta charset="utf-8" />
@@ -15,7 +15,6 @@
   <meta name="author" content="Eric Chan">
   <meta name="description" content="Posts and writings by Eric Chan">
 
-  <link href="https://echanclarityinsights.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Eric Chan @ Clarity Insights Atom" />
 
 <meta name="keywords" content="">
 
@@ -28,10 +27,10 @@
 <body>
   <aside>
     <div id="user_meta">
-      <a href="https://echanclarityinsights.github.io">
+      <a href="">
         <img src="/images/eric.jpg" alt="logo">
       </a>
-      <h2><a href="https://echanclarityinsights.github.io">Eric Chan</a></h2>
+      <h2><a href="">Eric Chan</a></h2>
       <p>Eric Chan is a Senior Associate Consultant at Clarity Insights.</p>
       <ul>
         <li><a href="https://www.clarityinsights.com" target="_blank">Clarity Insights</a></li>
@@ -44,14 +43,13 @@
   <main>
     <header>
       <p>
-      <a href="https://echanclarityinsights.github.io">Index</a> &brvbar; <a href="https://echanclarityinsights.github.io/archives.html">Archives</a>
-      &brvbar; <a href="https://echanclarityinsights.github.io/feeds/all.atom.xml">Atom</a>
+      <a href="">Index</a> &brvbar; <a href="/archives.html">Archives</a>
       </p>
     </header>
 
 <article>
   <div class="article_title">
-    <h1><a href="https://echanclarityinsights.github.io/posts/2018/Dec/23/yes-you-can-install-spark-on-your-computer/">Yes, you can install Spark on your computer</a></h1>
+    <h1><a href="/posts/2018/Dec/23/yes-you-can-install-spark-on-your-computer/">Yes, you can install Spark on your computer</a></h1>
   </div>
   <div class="article_text">
     <p><img alt="Spark Meme" src="/images/2018-12-23/spark-meme.jpg" width="500px"></p>
@@ -96,11 +94,11 @@ style="width: 100%" border="2">
 Spark Download Page</p>
 
 <h3>Set SPARK_HOME and add to PATH</h3>
-<p>Find where Spark was installed on your computer. Spark was downloaded and
-extracted to my <code>Downloads</code> directory. <code>SPARK_HOME</code> needs to point to your root
-Spark directory. The <code>PATH</code> should contain <code>SPARK_HOME\bin</code>. I used the
-following to set my <code>SPARK_HOME</code> environment variable and add <code>SPARK_HOME</code> to
-my <code>PATH</code></p>
+<p>Find where Spark was downloaded and extracted on your computer. Spark was
+downloaded and extracted to my <code>Downloads</code> directory. <code>SPARK_HOME</code> needs to
+point to your root Spark directory. The <code>PATH</code> should contain <code>SPARK_HOME\bin</code>.
+I used the following to set my <code>SPARK_HOME</code> environment variable and add
+<code>SPARK_HOME</code> to my <code>PATH</code></p>
 <div class="highlight"><pre><span></span>cmd&gt; setx SPARK_HOME &quot;C:\Users\echan\Downloads\spark-2.3.2-bin-hadoop2.7&quot;
 cmd&gt; setx PATH &quot;%SPARK_HOME%\bin;%PATH%&quot;
 </pre></div>
@@ -161,7 +159,7 @@ file. Move this file to your <code>SPARK_HOME/bin</code> directory.  </p>
 </pre></div>
 
 
-<p>In PySpark Shell: </p>
+<p>In PySpark Shell:</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">parallelize</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
@@ -191,7 +189,7 @@ ignore this.</em></strong>  </p>
   </div>
   <div class="article_meta">
     <p>Posted on: Sun 23 December 2018</p>
-    <p>Category: <a href="https://echanclarityinsights.github.io/category/spark.html">Spark</a>
+    <p>Category: <a href="/category/spark.html">Spark</a>
     </p>
   </div>
 

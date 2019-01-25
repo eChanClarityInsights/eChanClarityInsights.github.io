@@ -52,11 +52,11 @@ style="width: 100%" border="2">
 Spark Download Page</p>
 
 ### Set SPARK_HOME and add to PATH  
-Find where Spark was installed on your computer. Spark was downloaded and
-extracted to my `Downloads` directory. `SPARK_HOME` needs to point to your root
-Spark directory. The `PATH` should contain `SPARK_HOME\bin`. I used the
-following to set my `SPARK_HOME` environment variable and add `SPARK_HOME` to
-my `PATH`
+Find where Spark was downloaded and extracted on your computer. Spark was
+downloaded and extracted to my `Downloads` directory. `SPARK_HOME` needs to
+point to your root Spark directory. The `PATH` should contain `SPARK_HOME\bin`.
+I used the following to set my `SPARK_HOME` environment variable and add
+`SPARK_HOME` to my `PATH`
 ```
 cmd> setx SPARK_HOME "C:\Users\echan\Downloads\spark-2.3.2-bin-hadoop2.7"
 cmd> setx PATH "%SPARK_HOME%\bin;%PATH%"
@@ -112,7 +112,7 @@ From the command prompt:
 ```
 cmd> pyspark  
 ```
-In PySpark Shell: 
+In PySpark Shell:
 ```
 #!python
 >>> a = sc.parallelize(range(10))

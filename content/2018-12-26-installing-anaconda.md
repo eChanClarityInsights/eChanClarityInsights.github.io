@@ -25,7 +25,9 @@ While installing, check the box that will "Add Anaconda to my PATH environment
 variable". The message says this is not recommended but we check it anyway. It
 will save us the step of setting our PATH manually. If you have a previous
 version of Python installed, checking this will supersede your previous
-installation.
+installation.  
+
+![Add Anaconda to Path](/images/2018-12-26/anaconda-install-screen.PNG)
 
 The installation process might take some time. It took about 30 minutes on my
 machine.  
@@ -43,4 +45,4 @@ cmd> python
 ```
 This will open up the Python interactive shell.  
 
-Happy developing! 
+Happy developing!
