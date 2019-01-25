@@ -27,7 +27,8 @@ the command prompt:  &lt;/p&gt;
 variable". The message says this is not recommended but we check it anyway. It
 will save us the step of setting our PATH manually. If you have a previous
 version of Python installed, checking this will supersede your previous
-installation.&lt;/p&gt;
+installation.  &lt;/p&gt;
+&lt;p&gt;&lt;img alt="Add Anaconda to Path" src="/images/2018-12-26/anaconda-install-screen.PNG"&gt;&lt;/p&gt;
 &lt;p&gt;The installation process might take some time. It took about 30 minutes on my
 machine.  &lt;/p&gt;
 &lt;h4&gt;Check your installation&lt;/h4&gt;
@@ -43,4 +44,4 @@ installed.&lt;/p&gt;
 
 
 &lt;p&gt;This will open up the Python interactive shell.  &lt;/p&gt;
-&lt;p&gt;Happy developing! &lt;/p&gt;</content></entry></feed>
+&lt;p&gt;Happy developing!&lt;/p&gt;</content></entry></feed>
