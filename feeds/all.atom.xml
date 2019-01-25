@@ -101,7 +101,8 @@ the command prompt:  &lt;/p&gt;
 variable". The message says this is not recommended but we check it anyway. It
 will save us the step of setting our PATH manually. If you have a previous
 version of Python installed, checking this will supersede your previous
-installation.&lt;/p&gt;
+installation.  &lt;/p&gt;
+&lt;p&gt;&lt;img alt="Add Anaconda to Path" src="/images/2018-12-26/anaconda-install-screen.PNG"&gt;&lt;/p&gt;
 &lt;p&gt;The installation process might take some time. It took about 30 minutes on my
 machine.  &lt;/p&gt;
 &lt;h4&gt;Check your installation&lt;/h4&gt;
@@ -117,7 +118,7 @@ installed.&lt;/p&gt;
 
 
 &lt;p&gt;This will open up the Python interactive shell.  &lt;/p&gt;
-&lt;p&gt;Happy developing! &lt;/p&gt;</content></entry><entry><title>Yes, you can install Spark on your computer</title><link href="https://echanclarityinsights.github.io/posts/2018/Dec/23/yes-you-can-install-spark-on-your-computer/" rel="alternate"></link><published>2018-12-23T14:30:00-06:00</published><updated>2018-12-23T14:30:00-06:00</updated><author><name>Eric Chan</name></author><id>tag:echanclarityinsights.github.io,2018-12-23:/posts/2018/Dec/23/yes-you-can-install-spark-on-your-computer/</id><summary type="html">&lt;p&gt;&lt;img alt="Spark Meme" src="/images/2018-12-23/spark-meme.jpg" width="500px"&gt;&lt;/p&gt;
+&lt;p&gt;Happy developing!&lt;/p&gt;</content></entry><entry><title>Yes, you can install Spark on your computer</title><link href="https://echanclarityinsights.github.io/posts/2018/Dec/23/yes-you-can-install-spark-on-your-computer/" rel="alternate"></link><published>2018-12-23T14:30:00-06:00</published><updated>2018-12-23T14:30:00-06:00</updated><author><name>Eric Chan</name></author><id>tag:echanclarityinsights.github.io,2018-12-23:/posts/2018/Dec/23/yes-you-can-install-spark-on-your-computer/</id><summary type="html">&lt;p&gt;&lt;img alt="Spark Meme" src="/images/2018-12-23/spark-meme.jpg" width="500px"&gt;&lt;/p&gt;
 &lt;h2&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;This post is about installing Spark on a computer running Windows 10.  &lt;/p&gt;
 &lt;p&gt;If you want to run PySpark, you must have Python installed on your machine. If
@@ -165,11 +166,11 @@ style="width: 100%" border="2"&gt;
 Spark Download Page&lt;/p&gt;
 
 &lt;h3&gt;Set SPARK_HOME and add to PATH&lt;/h3&gt;
-&lt;p&gt;Find where Spark was installed on your computer. Spark was downloaded and
-extracted to my &lt;code&gt;Downloads&lt;/code&gt; directory. &lt;code&gt;SPARK_HOME&lt;/code&gt; needs to point to your root
-Spark directory. The &lt;code&gt;PATH&lt;/code&gt; should contain &lt;code&gt;SPARK_HOME\bin&lt;/code&gt;. I used the
-following to set my &lt;code&gt;SPARK_HOME&lt;/code&gt; environment variable and add &lt;code&gt;SPARK_HOME&lt;/code&gt; to
-my &lt;code&gt;PATH&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Find where Spark was downloaded and extracted on your computer. Spark was
+downloaded and extracted to my &lt;code&gt;Downloads&lt;/code&gt; directory. &lt;code&gt;SPARK_HOME&lt;/code&gt; needs to
+point to your root Spark directory. The &lt;code&gt;PATH&lt;/code&gt; should contain &lt;code&gt;SPARK_HOME\bin&lt;/code&gt;.
+I used the following to set my &lt;code&gt;SPARK_HOME&lt;/code&gt; environment variable and add
+&lt;code&gt;SPARK_HOME&lt;/code&gt; to my &lt;code&gt;PATH&lt;/code&gt;&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cmd&amp;gt; setx SPARK_HOME &amp;quot;C:\Users\echan\Downloads\spark-2.3.2-bin-hadoop2.7&amp;quot;
 cmd&amp;gt; setx PATH &amp;quot;%SPARK_HOME%\bin;%PATH%&amp;quot;
 &lt;/pre&gt;&lt;/div&gt;
@@ -230,7 +231,7 @@ file. Move this file to your &lt;code&gt;SPARK_HOME/bin&lt;/code&gt; directory. 
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;In PySpark Shell: &lt;/p&gt;
+&lt;p&gt;In PySpark Shell:&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
 2&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;sc&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;parallelize&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
 &lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;collect&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
