@@ -52,7 +52,8 @@
     <h1><a href="/posts/2019/Jan/30/how-to-install-hadoop-on-your-computer/">How to install Hadoop on your computer</a></h1>
   </div>
   <div class="article_text">
-    <h2>Introduction</h2>
+    <p><img alt="Hadoop Meme" src="/images/2019-01-12/hadoop_meme.jpg"></p>
+<h2>Introduction</h2>
 <p>This post is about installing Hadoop on a computer running Windows 10.  </p>
 <h3>What is Hadoop?</h3>
 <p>Hadoop is a framework that allows for distributed processing of large data sets
@@ -288,7 +289,8 @@ cmd&gt;hadoop fs -ls /user/echan
 </pre></div>
 
 
-<h3>Fixing Incompatible cluster IDs</h3>
+<p>Happy developing!  </p>
+<h4>Debugging: Fixing Incompatible cluster IDs</h4>
 <p>I ran into the following problem in my Name Node:  </p>
 <div class="highlight"><pre><span></span>WARN org.apache.hadoop.hdfs.server.common.Storage: java.io.IOException: Incompatible clusterIDs
 org.apache.hadoop.hdfs.server.datanode.DataNode: Initialization failed for Block pool
@@ -298,7 +300,6 @@ org.apache.hadoop.hdfs.server.datanode.DataNode: Initialization failed for Block
 <p>To fix this, I copied the CluserID value from my <code>C:\Users\echan\Downloads\hadoop-2.9.2\etc\hadoop\namenode\current\VERSION</code> file
 file to the <code>C:\Users\echan\Downloads\hadoop-2.9.2\etc\hadoop\datanode\current\VERSION</code> file.
 To read more: <a href="https://stackoverflow.com/questions/35108445/java-io-ioexception-incompatible-clusterids">Incompatible cluster IDs</a>  </p>
-<p>Happy developing!</p>
   </div>
   <div class="article_meta">
     <p>Posted on: Wed 30 January 2019</p>

@@ -1,7 +1,8 @@
 Title: How to install Hadoop on your computer
-Date: 2019-01-30 8:04 AM
+Date: 2019-01-30 5:30 PM
 Category: Hadoop   
 
+![Hadoop Meme](/images/2019-01-12/hadoop_meme.jpg)
 ## Introduction  
 This post is about installing Hadoop on a computer running Windows 10.  
 
@@ -247,7 +248,9 @@ cmd>hadoop fs -put test.txt /user/echan
 // check that your file got put into your hdfs directory
 cmd>hadoop fs -ls /user/echan
 ```
-## Debugging: Fixing Incompatible cluster IDs  
+Happy developing!  
+
+#### Debugging: Fixing Incompatible cluster IDs  
 I ran into the following problem in my Name Node:  
 ```
 WARN org.apache.hadoop.hdfs.server.common.Storage: java.io.IOException: Incompatible clusterIDs
@@ -256,5 +259,3 @@ org.apache.hadoop.hdfs.server.datanode.DataNode: Initialization failed for Block
 To fix this, I copied the CluserID value from my `C:\Users\echan\Downloads\hadoop-2.9.2\etc\hadoop\namenode\current\VERSION` file
 file to the `C:\Users\echan\Downloads\hadoop-2.9.2\etc\hadoop\datanode\current\VERSION` file.
 To read more: [Incompatible cluster IDs](https://stackoverflow.com/questions/35108445/java-io-ioexception-incompatible-clusterids)  
-
-Happy developing!

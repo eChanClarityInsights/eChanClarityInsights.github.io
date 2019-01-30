@@ -1,5 +1,258 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Eric Chan @ Clarity Insights</title><link href="https://echanclarityinsights.github.io/" rel="alternate"></link><link href="https://echanclarityinsights.github.io/feeds/all.atom.xml" rel="self"></link><id>https://echanclarityinsights.github.io/</id><updated>2018-12-26T14:35:00-06:00</updated><entry><title>How to Run Spark on Jupyter Notebook</title><link href="https://echanclarityinsights.github.io/posts/2018/Dec/26/how-to-run-spark-on-jupyter-notebook/" rel="alternate"></link><published>2018-12-26T14:35:00-06:00</published><updated>2018-12-26T14:35:00-06:00</updated><author><name>Eric Chan</name></author><id>tag:echanclarityinsights.github.io,2018-12-26:/posts/2018/Dec/26/how-to-run-spark-on-jupyter-notebook/</id><summary type="html">&lt;p&gt;&lt;img alt="Cat Meme" src="/images/2018-12-26/cat-meme.jpg"&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Eric Chan @ Clarity Insights</title><link href="https://echanclarityinsights.github.io/" rel="alternate"></link><link href="https://echanclarityinsights.github.io/feeds/all.atom.xml" rel="self"></link><id>https://echanclarityinsights.github.io/</id><updated>2019-01-30T08:04:00-06:00</updated><entry><title>How to install Hadoop on your computer</title><link href="https://echanclarityinsights.github.io/posts/2019/Jan/30/how-to-install-hadoop-on-your-computer/" rel="alternate"></link><published>2019-01-30T08:04:00-06:00</published><updated>2019-01-30T08:04:00-06:00</updated><author><name>Eric Chan</name></author><id>tag:echanclarityinsights.github.io,2019-01-30:/posts/2019/Jan/30/how-to-install-hadoop-on-your-computer/</id><summary type="html">&lt;h2&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;This post is about installing Hadoop on a computer running Windows 10.  &lt;/p&gt;
+&lt;h3&gt;What is Hadoop?&lt;/h3&gt;
+&lt;p&gt;Hadoop is a framework that allows for distributed processing of large data sets
+across clusters of computers.  &lt;/p&gt;
+&lt;h2&gt;Step 1 - Install Java&lt;/h2&gt;
+&lt;h4&gt;Java Development Kit 8 (JDK 8) is already installed&lt;/h4&gt;
+&lt;p&gt;If JDK 8 is …&lt;/p&gt;</summary><content type="html">&lt;h2&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;This post is about installing Hadoop on a computer running Windows 10.  &lt;/p&gt;
+&lt;h3&gt;What is Hadoop?&lt;/h3&gt;
+&lt;p&gt;Hadoop is a framework that allows for distributed processing of large data sets
+across clusters of computers.  &lt;/p&gt;
+&lt;h2&gt;Step 1 - Install Java&lt;/h2&gt;
+&lt;h4&gt;Java Development Kit 8 (JDK 8) is already installed&lt;/h4&gt;
+&lt;p&gt;If JDK 8 is already installed on your machine skip to step 2.&lt;/p&gt;
+&lt;h4&gt;How do I check if JDK 8 is installed on my machine?&lt;/h4&gt;
+&lt;p&gt;Open a windows command prompt and type the following:  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cmd&amp;gt; java -version  
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;If you get the following output:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;java version &amp;quot;1.8.0_191&amp;quot;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;then JDK 8 is installed on your machine and your &lt;code&gt;JAVA_HOME&lt;/code&gt; environment
+variable is set. The first two numbers of the version number are the important
+ones. The numbers after 1.8 are the build number and may vary depending on your
+build.  &lt;/p&gt;
+&lt;p&gt;If you get an error, or a different version is installed, I recommend that you
+download and install JDK 8.  &lt;/p&gt;
+&lt;p&gt;If you need help with that, here is a helpful link:  &lt;/p&gt;
+&lt;p&gt;&lt;a href="../../23/how-to-install-java"&gt;How to Install Java (JDK 8)&lt;/a&gt;  &lt;/p&gt;
+&lt;h2&gt;Step 2 - Download Hadoop&lt;/h2&gt;
+&lt;p&gt;Download &amp;amp; Extract &lt;a href="https://hadoop.apache.org/releases.html"&gt;Hadoop&lt;/a&gt;. I chose
+Hadoop version 2.9.2 which was the most recently updated Hadoop version at that
+time. I downloaded the "Binary download" of Hadoop.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: If you're using Windows, I recommend to use the binary releases.
+Binary releases are already compiled while source releases must be compiled. &lt;br&gt;
+To read more: &lt;a href="https://stackoverflow.com/questions/5280906/difference-between-binary-release-and-source-release"&gt;Install from source or binary?&lt;/a&gt;&lt;br&gt;
+&lt;strong&gt;Note&lt;/strong&gt;: If you are getting a &lt;code&gt;Cannot create symbolic link&lt;/code&gt; error, run your
+extracting utility as Administrator.&lt;br&gt;
+&lt;img alt="Symbolic Link Error" src="/images/2019-01-12/symbolic-link-error.PNG"&gt;&lt;br&gt;
+To read more: &lt;a href="https://superuser.com/questions/1076527/7zip-cannot-create-symbolic-link-access-is-denied-to-libhdfs-so-and-libhadoop-s"&gt;Cannot create symbolic link&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;Step 3 - Set HADOOP_HOME, Hadoop environment variables, and add to PATH&lt;/h2&gt;
+&lt;p&gt;Find where Hadoop was downloaded and extracted to your computer. Hadoop was
+downloaded and extracted to my &lt;code&gt;Downloads&lt;/code&gt; directory. &lt;code&gt;HADOOP_HOME&lt;/code&gt; and other
+Hadoop environment variables need to point to your root Hadoop directory. The
+&lt;code&gt;PATH&lt;/code&gt; should contain &lt;code&gt;HADOOP_HOME\bin&lt;/code&gt;.  &lt;/p&gt;
+&lt;p&gt;I used the follow to set my &lt;code&gt;HADOOP_HOME&lt;/code&gt;, other Hadoop environment variables,
+and &lt;code&gt;PATH&lt;/code&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cmd&amp;gt; setx HADOOP_HOME &amp;quot;C:\Users\echan\Downloads\hadoop-2.9.2&amp;quot;
+cmd&amp;gt; setx HADOOP_MAPRED_HOME &amp;quot;C:\Users\echan\Downloads\hadoop-2.9.2&amp;quot;
+cmd&amp;gt; setx HADOOP_COMMON_HOME &amp;quot;C:\Users\echan\Downloads\hadoop-2.9.2&amp;quot;
+cmd&amp;gt; setx HADOOP_HDFS_HOME &amp;quot;C:\Users\echan\Downloads\hadoop-2.9.2&amp;quot;
+cmd&amp;gt; setx YARN_HOME &amp;quot;C:\Users\echan\Downloads\hadoop-2.9.2&amp;quot;
+cmd&amp;gt; setx HADOOP_CONF_DIR &amp;quot;C:\Users\echan\Downloads\hadoop-2.9.2\etc\hadoop&amp;quot;
+cmd&amp;gt; setx PATH &amp;quot;%HADOOP_HOME%\bin;%PATH%&amp;quot;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Close your command prompt and reopen a new one to refresh your environment
+variables. Verify that your environment variables were set correctly.  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cmd&amp;gt; echo %HADOOP_HOME%
+cmd&amp;gt; echo %HADOOP_MAPRED_HOME%
+cmd&amp;gt; echo %HADOOP_COMMON_HOME%
+cmd&amp;gt; echo %HADOOP_HDFS_HOME%
+cmd&amp;gt; echo %YARN_HOME%
+cmd&amp;gt; echo %HADOOP_CONF_DIR%
+// to pretty print PATH
+cmd&amp;gt; for %a in (&amp;quot;%path:;=&amp;quot;;&amp;quot;%&amp;quot;) do @echo %~a
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;You should see something like the following output:  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;// this should be the output for %HADOOP_HOME%, %HADOOP_MAPRED_HOME%, %HADOOP_COMMON_HOME%, %HADOOP_HDFS_HOME%, and %YARN_HOME%
+C:\Users\echan\Downloads\hadoop-2.9.2
+// this should be the output for %HADOOP_CONF_DIR  
+C:\Users\echan\Downloads\hadoop-2.9.2\etc\hadoop
+// this should appear somewhere in your PATH
+C:\Users\echan\Downloads\hadoop-2.9.2\bin
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Step 4 - Set properties and variables for xml files&lt;/h2&gt;
+&lt;p&gt;Find the file &lt;code&gt;core-site.xml&lt;/code&gt;. For me, it is located at &lt;code&gt;C:\Users\echan\Downloads\hadoop-2.9.2\etc\hadoop\core-site.xml&lt;/code&gt;.
+Add the following property inside of the configuration tag:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;configuration&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;property&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;name&amp;gt;&lt;/span&gt;fs.defaultFS&lt;span class="nt"&gt;&amp;lt;/name&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;value&amp;gt;&lt;/span&gt;hdfs://localhost:9000&lt;span class="nt"&gt;&amp;lt;/value&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;/property&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/configuration&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Find the file &lt;code&gt;mapred-site.xml.template&lt;/code&gt;. For me, it is located at &lt;code&gt;C:\Users\echan\Downloads\hadoop-2.9.2\etc\hadoop\mapred-site.xml.template&lt;/code&gt;.
+Rename this file &lt;code&gt;mapred-site.xml&lt;/code&gt; and add the following property inside of the
+configuration tag:  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;configuration&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;property&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;name&amp;gt;&lt;/span&gt;mapreduce.framework.name&lt;span class="nt"&gt;&amp;lt;/name&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;value&amp;gt;&lt;/span&gt;yarn&lt;span class="nt"&gt;&amp;lt;/value&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;/property&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/configuration&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;Create data, datanode, and namenode directories&lt;/h4&gt;
+&lt;p&gt;Navigate to your root Hadoop directory. For me that is &lt;code&gt;C:\Users\echan\Downloads\hadoop-2.9.2&lt;/code&gt;.
+Create the following directories:&lt;br&gt;
+- &lt;code&gt;C:\Users\echan\Downloads\hadoop-2.9.2\data&lt;/code&gt;&lt;br&gt;
+- &lt;code&gt;C:\Users\echan\Downloads\hadoop-2.9.2\data\datanode&lt;/code&gt;&lt;br&gt;
+- &lt;code&gt;C:\Users\echan\Downloads\hadoop-2.9.2\data\namenode&lt;/code&gt;  &lt;/p&gt;
+&lt;p&gt;Find the file &lt;code&gt;hdfs-site.xml&lt;/code&gt;. For me, it is located at &lt;code&gt;C:\Users\echan\Downloads\hadoop-2.9.2\etc\hadoop\hdfs-site.xml&lt;/code&gt;.
+Add the following property inside of the configuration tag:  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;configuration&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;property&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;name&amp;gt;&lt;/span&gt;dfs.replication&lt;span class="nt"&gt;&amp;lt;/name&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;value&amp;gt;&lt;/span&gt;1&lt;span class="nt"&gt;&amp;lt;/value&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;/property&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;property&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;name&amp;gt;&lt;/span&gt;dfs.namenode.name.dir&lt;span class="nt"&gt;&amp;lt;/name&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;value&amp;gt;&lt;/span&gt;/Users/echan/Downloads/hadoop-2.9.2/etc/hadoop/namenode&lt;span class="nt"&gt;&amp;lt;/value&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;/property&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;property&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;name&amp;gt;&lt;/span&gt;dfs.datanode.data.dir&lt;span class="nt"&gt;&amp;lt;/name&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;value&amp;gt;&lt;/span&gt;/Users/echan/Downloads/hadoop-2.9.2/etc/hadoop/datanode&lt;span class="nt"&gt;&amp;lt;/value&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;/property&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/configuration&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Note&lt;/em&gt;&lt;/strong&gt; Notice two things in this configuration:&lt;br&gt;
+- I didn't specify &lt;code&gt;C:&lt;/code&gt; when specifying the path to the namenode and data directories.&lt;br&gt;
+- I used forward slashes (&lt;code&gt;/&lt;/code&gt;) when specifying my path.&lt;br&gt;
+To read more: &lt;a href="https://stackoverflow.com/questions/34871814/failed-to-start-namenode-in-hadoop"&gt;NameNode failed to start&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Find the file &lt;code&gt;yarn-site.xml&lt;/code&gt;. For me, it is located at &lt;code&gt;C:\Users\echan\Downloads\hadoop-2.9.2\etc\hadoop\yarn-site.xml&lt;/code&gt;
+Add the following property inside of the configuration tag:  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;configuration&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;property&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;name&amp;gt;&lt;/span&gt;yarn.nodemanager.aux-services&lt;span class="nt"&gt;&amp;lt;/name&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;value&amp;gt;&lt;/span&gt;mapreduce_shuffle&lt;span class="nt"&gt;&amp;lt;/value&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;/property&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;property&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;name&amp;gt;&lt;/span&gt;yarn.nodemanager.auxservices.mapreduce.shuffle.class&lt;span class="nt"&gt;&amp;lt;/name&amp;gt;&lt;/span&gt;  
+        &lt;span class="nt"&gt;&amp;lt;value&amp;gt;&lt;/span&gt;org.apache.hadoop.mapred.ShuffleHandler&lt;span class="nt"&gt;&amp;lt;/value&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;/property&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/configuration&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Open a command prompt navigate to the directory where your &lt;code&gt;JAVA_HOME&lt;/code&gt; is
+located. We are going to convert our &lt;code&gt;JAVA_HOME&lt;/code&gt; from a long path to a windows
+short name.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cmd&amp;gt;cd %JAVA_HOME%  
+cmd&amp;gt;for %I in (.) do echo %sI
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;You should see something like this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cmd&amp;gt;C:\PROGRA~1\Java\JDK18~1.0_1
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Find the file &lt;code&gt;hadoop-env.cmd&lt;/code&gt;. For me, it is located at &lt;code&gt;C:\Users\echan\Downloads\hadoop-2.9.2\etc\hadoop\hadoop-env.cmd&lt;/code&gt;.
+Set the &lt;code&gt;JAVA_HOME&lt;/code&gt; variable in &lt;code&gt;hadoop-env.cmd&lt;/code&gt; to your windows short name
+&lt;code&gt;JAVA_HOME&lt;/code&gt; path.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;set JAVA_HOME=C:\PROGRA~1\Java\JDK18~1.0_1
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Step 5 - Download Hadoop configuration&lt;/h2&gt;
+&lt;p&gt;Download the following &lt;a href="https://github.com/MuhammadBilalYar/HADOOP-INSTALLATION-ON-WINDOW-10/blob/master/Hadoop%20Configuration.zip"&gt;Hadoop Configuration.zip&lt;/a&gt; &lt;br&gt;
+Delete the bin directory inside your Hadoop root directory and replace it with
+the new bin directory downloaded and extracted from &lt;a href="https://github.com/MuhammadBilalYar/HADOOP-INSTALLATION-ON-WINDOW-10/blob/master/Hadoop%20Configuration.zip"&gt;Hadoop Configuration.zip&lt;/a&gt;.
+For me, I deleted my &lt;code&gt;C:\Users\echan\Downloads\hadoop-2.9.2\bin\&lt;/code&gt; directory and
+replaced it with the newly unzipped &lt;code&gt;bin&lt;/code&gt; directory.&lt;/p&gt;
+&lt;h2&gt;Step 6 - Format the NameNode&lt;/h2&gt;
+&lt;p&gt;Type the following in your command prompt to format the NameNode:  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cmd&amp;gt;hdfs namenode -format
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The following message popped up when I did this:  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Re-format filesystem in Storage Directory C:\Users\echan\Downloads\hadoop-2.9.2\etc\hadoop\namenode ? (Y or N)
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This happens when &lt;code&gt;dfs.namenode.name.dir&lt;/code&gt; already exists. Re-formating it will
+delete the existing metadata. I chose &lt;code&gt;Y&lt;/code&gt;.
+To read more: &lt;a href="https://stackoverflow.com/questions/42803137/query-on-hadoop-namenode-format-command"&gt;Re-format filesystem in Storage Directory?&lt;/a&gt;  &lt;/p&gt;
+&lt;p&gt;Scrolling through the install log, I received the following warning:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;WARN common.Util: Path /Users/echan/Downloads/hadoop-2.9.2/etc/hadoop/namenode should be specified as a URI in configuration files. Please update hdfs configuration.
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This warning was fixed in subsequent versions and I ignored it for this
+installation. Read more about it here: &lt;a href="https://stackoverflow.com/questions/37280383/hadoop-name-node-format-warning"&gt;Name Node Format Warning&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;Step 7 - Run start-dfs.cmd &amp;amp; start-yarn.cmd&lt;/h2&gt;
+&lt;p&gt;Open a command prompt and navigate to the &lt;code&gt;sbin&lt;/code&gt; directory. For me this is &lt;code&gt;C:\Users\echan\Downloads\hadoop-2.9.2\sbin\&lt;/code&gt;
+and type the following to start the NameNode and one DataNode:  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cmd&amp;gt;start-dfs.cmd
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Open a separate command prompt, navigate to the &lt;code&gt;sbin&lt;/code&gt; directory and type the
+following to start yarn resourcemanager and nodemanager:  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cmd&amp;gt;start-yarn.cmd
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Note&lt;/em&gt;&lt;/strong&gt; The first time I ran this, I received an error In the resourcemanager
+command prompt, I got the following error:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;FATAL resourcemanager.ResourceManager: Error starting ResourceManager
+java.lang.NoClassDefFoundError: org/apache/hadoop/yarn/server/timelineservice/collector/TimelineCollectorManager
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;To fix this, I copied the timelineservice jar
+&lt;code&gt;hadoop-yarn-server-timelineservice-2.9.2.jar&lt;/code&gt; from the
+&lt;code&gt;C:\Users\echan\Downloads\hadoop-2.9.2\share\hadoop\yarn\timelineservice&lt;/code&gt;
+directory to &lt;code&gt;C:\Users\echan\Downloads\hadoop-2.9.2\share\hadoop\yarn&lt;/code&gt; directory.  &lt;/p&gt;
+&lt;p&gt;Run the &lt;code&gt;start-yarn.cmd&lt;/code&gt; command again and this time yarn resourcemanager
+started successfully!&lt;/p&gt;
+&lt;p&gt;To read more: &lt;a href="https://stackoverflow.com/questions/51118358/noclassdeffounderror-org-apache-hadoop-yarn-server-timelineservice-collector-tim"&gt;No Class Found: timelineservice collector&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Navigate to http://localhost:8088 browse the Hadoop UI. &lt;br&gt;
+The web interface for the NameNode is available at http://localhost:50070  &lt;/p&gt;
+&lt;h2&gt;Step 8 - Create a directory and put a file on Hadoop&lt;/h2&gt;
+&lt;p&gt;Type the following in your command prompt to create a few directories:  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;// create a directory for all users    
+cmd&amp;gt;hadoop fs -mkdir /user  
+// create a directory for a specific user, for me I typed hadoop fs -mkdir /user/echan
+cmd&amp;gt;hadoop fs -mkdir /user/&amp;lt;username&amp;gt;
+// put a file into user directory, for my I typed hadoop fs -put test.txt /user/echan
+// hadoop fs -put &amp;lt;path to local file&amp;gt; &amp;lt;path to hadoop directory&amp;gt;
+cmd&amp;gt;hadoop fs -put test.txt /user/echan
+// check that your file got put into your hdfs directory
+cmd&amp;gt;hadoop fs -ls /user/echan
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Debugging: Fixing Incompatible cluster IDs&lt;/h2&gt;
+&lt;p&gt;I ran into the following problem in my Name Node:  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;WARN org.apache.hadoop.hdfs.server.common.Storage: java.io.IOException: Incompatible clusterIDs
+org.apache.hadoop.hdfs.server.datanode.DataNode: Initialization failed for Block pool
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;To fix this, I copied the CluserID value from my &lt;code&gt;C:\Users\echan\Downloads\hadoop-2.9.2\etc\hadoop\namenode\current\VERSION&lt;/code&gt; file
+file to the &lt;code&gt;C:\Users\echan\Downloads\hadoop-2.9.2\etc\hadoop\datanode\current\VERSION&lt;/code&gt; file.
+To read more: &lt;a href="https://stackoverflow.com/questions/35108445/java-io-ioexception-incompatible-clusterids"&gt;Incompatible cluster IDs&lt;/a&gt;  &lt;/p&gt;
+&lt;p&gt;Happy developing!&lt;/p&gt;</content></entry><entry><title>How to Run Spark on Jupyter Notebook</title><link href="https://echanclarityinsights.github.io/posts/2018/Dec/26/how-to-run-spark-on-jupyter-notebook/" rel="alternate"></link><published>2018-12-26T14:35:00-06:00</published><updated>2018-12-26T14:35:00-06:00</updated><author><name>Eric Chan</name></author><id>tag:echanclarityinsights.github.io,2018-12-26:/posts/2018/Dec/26/how-to-run-spark-on-jupyter-notebook/</id><summary type="html">&lt;p&gt;&lt;img alt="Cat Meme" src="/images/2018-12-26/cat-meme.jpg"&gt;&lt;/p&gt;
 &lt;h2&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;This post is about setting up Spark to run on a Jupyter Notebook on a
 computer running Windows 10.  &lt;/p&gt;
@@ -196,7 +449,7 @@ C:\Users\echan\Downloads\spark-2.3.2-bin-hadoop2.7\bin
 &lt;p&gt;Download &lt;a href="https://github.com/steveloughran/winutils"&gt;winutils.exe&lt;/a&gt;. Choose the
 winutils version corresponding to your package type (I used hadoop-2.7.1).
 Navigate to the &lt;code&gt;hadoop-2.7.1/bin&lt;/code&gt; directory and download the &lt;code&gt;winutils.exe&lt;/code&gt;
-file. Move this file to your &lt;code&gt;SPARK_HOME/bin&lt;/code&gt; directory.  &lt;/p&gt;
+file. Move this file to your &lt;code&gt;%SPARK_HOME%/bin&lt;/code&gt; directory.  &lt;/p&gt;
 &lt;h4&gt;Set HADOOP_HOME&lt;/h4&gt;
 &lt;p&gt;Set your &lt;code&gt;HADOOP_HOME&lt;/code&gt; environment variable to your Spark root directory.  &lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cmd&amp;gt; setx HADOOP_HOME &amp;quot;C:\Users\echan\Downloads\spark-2.3.2-bin-hadoop2.7&amp;quot;
