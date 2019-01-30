@@ -18,7 +18,7 @@ installing Python on your computer much easier.  &lt;/p&gt;
 &lt;h4&gt;Download &amp;amp; Installation&lt;/h4&gt;
 &lt;p&gt;&lt;a href="https://www.anaconda.com/"&gt;Download Anaconda&lt;/a&gt;. I downloaded the Python 3.7
 version for 64-Bit Graphical Installer. If you're using Windows, type this in
-the command prompt:  &lt;/p&gt;
+the command prompt to see your version of Windows:  &lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cmd&amp;gt; wmic os get osarchitecture
 &lt;/pre&gt;&lt;/div&gt;
 

@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Eric Chan">
+  <meta name="description" content="Posts and writings by Eric Chan">
+
+
+<meta name="keywords" content="">
+
+  <title>
+    Eric Chan @ Clarity Insights
+&ndash; How to install Hadoop on your computer  </title>
+
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="">
+        <img src="/images/eric.jpg" alt="logo">
+      </a>
+      <h2><a href="">Eric Chan</a></h2>
+      <p>Eric Chan is a Senior Associate Consultant at Clarity Insights.</p>
+      <ul>
+        <li><a href="https://www.clarityinsights.com" target="_blank">Clarity Insights</a></li>
+        <li><a href="https://github.com/eChanClarityInsights" target="_blank">GitHub</a></li>
+        <li><a href="mailto:echan@clarityinsights.com" target="_blank">Email</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      <a href="">Index</a> &brvbar; <a href="/archives.html">Archives</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="/posts/2019/Jan/29/how-to-install-hadoop-on-your-computer/">How to install Hadoop on your computer</a></h1>
+  </div>
+  <div class="article_text">
+    <h2>Introduction</h2>
+<p>This post is about installing Hadoop on a computer running Windows 10.  </p>
+<h3>What is Hadoop?</h3>
+<p>Hadoop is a framework that allows for the distributed processing of large data
+sets across clusters of computers.  </p>
+<h2>Step 1 - Install Java</h2>
+<h4>Java Development Kit 8 (JDK 8) is already installed</h4>
+<p>If JDK 8 is already installed on your machine skip to step 2.</p>
+<h4>How do I check if JDK 8 is installed on my machine?</h4>
+<p>Open a windows command prompt and type the following:  </p>
+<div class="highlight"><pre><span></span>cmd&gt; java -version  
+</pre></div>
+
+
+<p>If you get the following output:</p>
+<div class="highlight"><pre><span></span>java version &quot;1.8.0_191&quot;
+</pre></div>
+
+
+<p>then JDK 8 is installed on your machine and your <code>JAVA_HOME</code> environment
+variable is set. The first two numbers of the version number are the important
+ones. The numbers after 1.8 are the build number and may vary depending on your
+build.  </p>
+<p>If you get an error, or a different version is installed, I recommend that you
+download and install JDK 8.  </p>
+<p>If you need help with that, here is a helpful link:  </p>
+<p><a href="../../23/how-to-install-java">How to Install Java (JDK 8)</a>  </p>
+<h2>Step 2 - Download Hadoop</h2>
+<p>Download &amp; Extract <a href="https://hadoop.apache.org/releases.html">Hadoop</a>. I chose
+Hadoop version 2.9.2 which was the most recently updated Hadoop version at that
+time. I downloaded the "Binary download" of Hadoop.</p>
+<p><strong>Note</strong>: If you're using Windows, I recommend to use the binary releases.
+Binary releases are already compiled while source releases must be compiled. <br>
+<a href="https://stackoverflow.com/questions/5280906/difference-between-binary-release-and-source-release">Install from source or binary?</a><br>
+<strong>Note</strong>: If you are getting a <code>Cannot create symbolic link</code> error, run your
+extracting utility as Administrator.<br>
+<img alt="Symbolic Link Error" src="/images/2019-01-12/symbolic-link-error.PNG"><br>
+<a href="https://superuser.com/questions/1076527/7zip-cannot-create-symbolic-link-access-is-denied-to-libhdfs-so-and-libhadoop-s">Cannot create symbolic link</a></p>
+<h3>Step 3 - Set HADOOP_HOME, Hadoop environment variables, and add to PATH</h3>
+<p>Find where Hadoop was downloaded and extracted to your computer. Hadoop was
+downloaded and extracted to my <code>Downloads</code> directory. <code>HADOOP_HOME</code> and other
+Hadoop environment variables need to point to your root Hadoop directory. The
+<code>PATH</code> should contain <code>HADOOP_HOME\bin</code>.  </p>
+<p>I used the follow to set my <code>HADOOP_HOME</code>, other Hadoop environment variables,
+and <code>PATH</code>.</p>
+<div class="highlight"><pre><span></span>cmd&gt; setx HADOOP_HOME &quot;C:\Users\echan\Downloads\hadoop-2.9.2&quot;
+cmd&gt; setx HADOOP_MAPRED_HOME &quot;C:\Users\echan\Downloads\hadoop-2.9.2&quot;
+cmd&gt; setx HADOOP_COMMON_HOME &quot;C:\Users\echan\Downloads\hadoop-2.9.2&quot;
+cmd&gt; setx HADOOP_HDFS_HOME &quot;C:\Users\echan\Downloads\hadoop-2.9.2&quot;
+cmd&gt; setx YARN_HOME &quot;C:\Users\echan\Downloads\hadoop-2.9.2&quot;
+cmd&gt; setx HADOOP_CONF_DIR &quot;C:\Users\echan\Downloads\hadoop-2.9.2\etc\hadoop&quot;
+cmd&gt; setx PATH &quot;%HADOOP_HOME%\bin;%PATH%&quot;
+</pre></div>
+
+
+<p>Close your command prompt and reopen a new one to refresh your environment
+variables. Verify that your environment variables were set correctly.  </p>
+<div class="highlight"><pre><span></span>cmd&gt; echo %HADOOP_HOME%
+cmd&gt; echo %HADOOP_MAPRED_HOME%
+cmd&gt; echo %HADOOP_COMMON_HOME%
+cmd&gt; echo %HADOOP_HDFS_HOME%
+cmd&gt; echo %YARN_HOME%
+cmd&gt; echo %HADOOP_CONF_DIR%
+// to pretty print PATH
+cmd&gt; for %a in (&quot;%path:;=&quot;;&quot;%&quot;) do @echo %~a
+</pre></div>
+
+
+<p>You should see something like the following output:  </p>
+<div class="highlight"><pre><span></span>// this should be the output for %HADOOP_HOME%, %HADOOP_MAPRED_HOME%, %HADOOP_COMMON_HOME%, %HADOOP_HDFS_HOME%, and %YARN_HOME%
+C:\Users\echan\Downloads\hadoop-2.9.2
+// this should be the output for %HADOOP_CONF_DIR  
+C:\Users\echan\Downloads\hadoop-2.9.2\etc\hadoop
+// this should appear somewhere in your PATH
+C:\Users\echan\Downloads\hadoop-2.9.2\bin
+</pre></div>
+
+
+<h3>Step 4 - Set properties and variables for xml files</h3>
+<p>Find the file <code>core-site.xml</code>. For me, it is located at <code>C:\Users\echan\Downloads\hadoop-2.9.2\etc\hadoop\core-site.xml</code>.
+Add the following property inside of the configuration tag:</p>
+<div class="highlight"><pre><span></span><span class="nt">&lt;configuration&gt;</span>
+    <span class="nt">&lt;property&gt;</span>
+        <span class="nt">&lt;name&gt;</span>fs.defaultFS<span class="nt">&lt;/name&gt;</span>
+        <span class="nt">&lt;value&gt;</span>hdfs://localhost:9000<span class="nt">&lt;/value&gt;</span>
+    <span class="nt">&lt;/property&gt;</span>
+<span class="nt">&lt;/configuration&gt;</span>
+</pre></div>
+
+
+<p>Find the file <code>mapred-site.xml.template</code>. For me, it is located at <code>C:\Users\echan\Downloads\hadoop-2.9.2\etc\hadoop\mapred-site.xml.template</code>.
+Rename this file <code>mapred-site.xml</code> and add the following property inside of the
+configuration tag:  </p>
+<div class="highlight"><pre><span></span><span class="nt">&lt;configuration&gt;</span>
+    <span class="nt">&lt;property&gt;</span>
+        <span class="nt">&lt;name&gt;</span>mapreduce.framework.name<span class="nt">&lt;/name&gt;</span>
+        <span class="nt">&lt;value&gt;</span>yarn<span class="nt">&lt;/value&gt;</span>
+    <span class="nt">&lt;/property&gt;</span>
+<span class="nt">&lt;/configuration&gt;</span>
+</pre></div>
+
+
+<h4>Create data, datanode, and namenode directories</h4>
+<p>Navigate to your root Hadoop directory. For me that is <code>C:\Users\echan\Downloads\hadoop-2.9.2</code>.
+Create the following directories:<br>
+- <code>C:\Users\echan\Downloads\hadoop-2.9.2\data</code><br>
+- <code>C:\Users\echan\Downloads\hadoop-2.9.2\data\datanode</code><br>
+- <code>C:\Users\echan\Downloads\hadoop-2.9.2\data\namenode</code>  </p>
+<p>Find the file <code>hdfs-site.xml</code>. For me, it is located at <code>C:\Users\echan\Downloads\hadoop-2.9.2\etc\hadoop\hdfs-site.xml</code>.
+Add the following property inside of the configuration tag:  </p>
+<div class="highlight"><pre><span></span><span class="nt">&lt;configuration&gt;</span>
+    <span class="nt">&lt;property&gt;</span>
+        <span class="nt">&lt;name&gt;</span>dfs.replication<span class="nt">&lt;/name&gt;</span>
+        <span class="nt">&lt;value&gt;</span>1<span class="nt">&lt;/value&gt;</span>
+    <span class="nt">&lt;/property&gt;</span>
+    <span class="nt">&lt;property&gt;</span>
+        <span class="nt">&lt;name&gt;</span>dfs.namenode.name.dir<span class="nt">&lt;/name&gt;</span>
+        <span class="nt">&lt;value&gt;</span>/Users/echan/Downloads/hadoop-2.9.2/etc/hadoop/namenode<span class="nt">&lt;/value&gt;</span>
+    <span class="nt">&lt;/property&gt;</span>
+    <span class="nt">&lt;property&gt;</span>
+        <span class="nt">&lt;name&gt;</span>dfs.datanode.data.dir<span class="nt">&lt;/name&gt;</span>
+        <span class="nt">&lt;value&gt;</span>/Users/echan/Downloads/hadoop-2.9.2/etc/hadoop/datanode<span class="nt">&lt;/value&gt;</span>
+    <span class="nt">&lt;/property&gt;</span>
+<span class="nt">&lt;/configuration&gt;</span>
+</pre></div>
+
+
+<p><strong><em>Note</em></strong> Notice two things in this configuration:<br>
+- I didn't specify <code>C:</code> when specifying the path to the namenode and data directories.<br>
+- I used forward slashes (<code>/</code>) when specifying my path.</p>
+<p>Find the file <code>yarn-site.xml</code>. For me, it is located at <code>C:\Users\echan\Downloads\hadoop-2.9.2\etc\hadoop\yarn-site.xml</code>
+Add the following property inside of the configuration tag:  </p>
+<div class="highlight"><pre><span></span><span class="nt">&lt;configuration&gt;</span>
+    <span class="nt">&lt;property&gt;</span>
+        <span class="nt">&lt;name&gt;</span>yarn.nodemanager.aux-services<span class="nt">&lt;/name&gt;</span>
+        <span class="nt">&lt;value&gt;</span>mapreduce_shuffle<span class="nt">&lt;/value&gt;</span>
+    <span class="nt">&lt;/property&gt;</span>
+    <span class="nt">&lt;property&gt;</span>
+        <span class="nt">&lt;name&gt;</span>yarn.nodemanager.auxservices.mapreduce.shuffle.class<span class="nt">&lt;/name&gt;</span>  
+        <span class="nt">&lt;value&gt;</span>org.apache.hadoop.mapred.ShuffleHandler<span class="nt">&lt;/value&gt;</span>
+    <span class="nt">&lt;/property&gt;</span>
+<span class="nt">&lt;/configuration&gt;</span>
+</pre></div>
+
+
+<p>Open a command prompt navigate to the directory where your <code>JAVA_HOME</code> is
+located. We are going to convert our <code>JAVA_HOME</code> from a long path to a windows
+short name.</p>
+<div class="highlight"><pre><span></span>cmd&gt;cd %JAVA_HOME%  
+cmd&gt;for %I in (.) do echo %sI
+</pre></div>
+
+
+<p>You should see something like this:</p>
+<div class="highlight"><pre><span></span>cmd&gt;C:\PROGRA~1\Java\JDK18~1.0_1
+</pre></div>
+
+
+<p>Find the file <code>hadoop-env.cmd</code>. For me, it is located at <code>C:\Users\echan\Downloads\hadoop-2.9.2\etc\hadoop\hadoop-env.cmd</code>.
+Set the <code>JAVA_HOME</code> variable in <code>hadoop-env.cmd</code> to your windows short name
+<code>JAVA_HOME</code> path.</p>
+<div class="highlight"><pre><span></span>set JAVA_HOME=C:\PROGRA~1\Java\JDK18~1.0_1
+</pre></div>
+
+
+<h3>Step 5 - Download Hadoop configuration</h3>
+<p>Download the following <a href="https://github.com/MuhammadBilalYar/HADOOP-INSTALLATION-ON-WINDOW-10/blob/master/Hadoop%20Configuration.zip">Hadoop Configuration.zip</a> <br>
+Delete the bin directory inside your Hadoop root directory and replace it with
+the new bin directory downloaded and extracted from <a href="https://github.com/MuhammadBilalYar/HADOOP-INSTALLATION-ON-WINDOW-10/blob/master/Hadoop%20Configuration.zip">Hadoop Configuration.zip</a>.
+For me, I deleted my <code>C:\Users\echan\Downloads\hadoop-2.9.2\bin\</code> directory and
+replaced it with the newly unzipped <code>bin</code> directory.</p>
+<h3>Step 6 - Format the NameNode</h3>
+<p>Type the following in your command prompt to format the NameNode:  </p>
+<div class="highlight"><pre><span></span>cmd&gt;hdfs namenode -format
+</pre></div>
+
+
+<p>The following message popped up when I did this:  </p>
+<div class="highlight"><pre><span></span>Re-format filesystem in Storage Directory C:\Users\echan\Downloads\hadoop-2.9.2\etc\hadoop\namenode ? (Y or N)
+</pre></div>
+
+
+<p>This happens when <code>dfs.namenode.name.dir</code> already exists. Re-formating it will
+delete the existing metadata. I chose <code>Y</code>. Read more about this here: <a href="https://stackoverflow.com/questions/42803137/query-on-hadoop-namenode-format-command">Re-format filesystem in Storage Directory?</a>  </p>
+<p>Scrolling through the install log, I received the following warning:</p>
+<div class="highlight"><pre><span></span>WARN common.Util: Path /Users/echan/Downloads/hadoop-2.9.2/etc/hadoop/namenode should be specified as a URI in configuration files. Please update hdfs configuration.
+</pre></div>
+
+
+<p>This warning was fixed in subsequent versions and I ignored it for this
+installation. Read more about it here: <a href="https://stackoverflow.com/questions/37280383/hadoop-name-node-format-warning">Name Node Format Warning</a></p>
+<h3>Step 7 - Run start-dfs.cmd &amp; start-yarn.cmd</h3>
+<p>Open a command prompt and navigate to the <code>sbin</code> directory. For me this is <code>C:\Users\echan\Downloads\hadoop-2.9.2\sbin\</code>
+and type the following to start the NameNode and one DataNode:  </p>
+<div class="highlight"><pre><span></span>cmd&gt;start-dfs.cmd
+</pre></div>
+
+
+<p>Open a separate command prompt, navigate to the <code>sbin</code> directory and type the
+following to start yarn resourcemanager and nodemanager:  </p>
+<div class="highlight"><pre><span></span>cmd&gt;start-yarn.cmd
+</pre></div>
+
+
+<p><strong><em>Note</em></strong> The first time I ran this, I received an error In the resourcemanager
+command prompt, I got the following error:</p>
+<div class="highlight"><pre><span></span>FATAL resourcemanager.ResourceManager: Error starting ResourceManager
+java.lang.NoClassDefFoundError: org/apache/hadoop/yarn/server/timelineservice/collector/TimelineCollectorManager
+</pre></div>
+
+
+<p>To fix this, I copied the timelineservice jar
+<code>hadoop-yarn-server-timelineservice-2.9.2.jar</code> from the
+<code>C:\Users\echan\Downloads\hadoop-2.9.2\share\hadoop\yarn\timelineservice</code>
+directory to <code>C:\Users\echan\Downloads\hadoop-2.9.2\share\hadoop\yarn</code> directory.  </p>
+<p>Run the <code>start-yarn.cmd</code> command again and this time yarn resourcemanager
+started successfully!   </p>
+<p>Navigate to http://localhost:8088 browse the Hadoop UI. <br>
+The web interface for the NameNode is available at http://localhost:50070  </p>
+<h3>Step 8 - Create a directory and put a file on Hadoop</h3>
+<p>Type the following in your command prompt to create a few directories:  </p>
+<div class="highlight"><pre><span></span>// create a directory for all users    
+cmd&gt;hadoop fs -mkdir /user  
+// create a directory for a specific user, for me I typed hadoop fs -mkdir /user/echan
+cmd&gt;hadoop fs -mkdir /user/&lt;username&gt;
+// put a file into user directory, for my I typed hadoop fs -put test.txt /user/echan
+// hadoop fs -put &lt;path to local file&gt; &lt;path to hadoop directory&gt;
+cmd&gt;hadoop fs -put test.txt /user/echan
+// check that your file got put into your hdfs directory
+cmd&gt;hadoop fs -ls /user/echan
+</pre></div>
+
+
+<h3>Fixing Incompatible cluster IDs</h3>
+<p>I ran into the following problem in my Name Node:  </p>
+<div class="highlight"><pre><span></span>WARN org.apache.hadoop.hdfs.server.common.Storage: java.io.IOException: Incompatible clusterIDs
+org.apache.hadoop.hdfs.server.datanode.DataNode: Initialization failed for Block pool
+</pre></div>
+
+
+<p>To fix this, I copied the CluserID value from my <code>C:\Users\echan\Downloads\hadoop-2.9.2\etc\hadoop\namenode\current\VERSION</code> file
+file to the <code>C:\Users\echan\Downloads\hadoop-2.9.2\etc\hadoop\datanode\current\VERSION</code> file.
+<a href="https://stackoverflow.com/questions/35108445/java-io-ioexception-incompatible-clusterids">Incompatible cluster IDs</a>  </p>
+<p>Happy developing!</p>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Tue 29 January 2019</p>
+    <p>Category: <a href="/category/hadoop.html">Hadoop</a>
+    </p>
+  </div>
+
+  <div id="article_comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_identifier = "posts/2019/Jan/29/how-to-install-hadoop-on-your-computer/";
+        (function() {
+             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+             dsq.src = '//echanclarityinsights-github-io-1.disqus.com/embed.js';
+             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+         })();
+    </script>
+  </div>
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; Eric Chan. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+    </div>
+  </main>
+</body>
+</html>
