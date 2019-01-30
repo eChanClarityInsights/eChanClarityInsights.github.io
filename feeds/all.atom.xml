@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Eric Chan @ Clarity Insights</title><link href="https://echanclarityinsights.github.io/" rel="alternate"></link><link href="https://echanclarityinsights.github.io/feeds/all.atom.xml" rel="self"></link><id>https://echanclarityinsights.github.io/</id><updated>2019-01-30T08:04:00-06:00</updated><entry><title>How to install Hadoop on your computer</title><link href="https://echanclarityinsights.github.io/posts/2019/Jan/30/how-to-install-hadoop-on-your-computer/" rel="alternate"></link><published>2019-01-30T08:04:00-06:00</published><updated>2019-01-30T08:04:00-06:00</updated><author><name>Eric Chan</name></author><id>tag:echanclarityinsights.github.io,2019-01-30:/posts/2019/Jan/30/how-to-install-hadoop-on-your-computer/</id><summary type="html">&lt;h2&gt;Introduction&lt;/h2&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Eric Chan @ Clarity Insights</title><link href="https://echanclarityinsights.github.io/" rel="alternate"></link><link href="https://echanclarityinsights.github.io/feeds/all.atom.xml" rel="self"></link><id>https://echanclarityinsights.github.io/</id><updated>2019-01-30T17:30:00-06:00</updated><entry><title>How to install Hadoop on your computer</title><link href="https://echanclarityinsights.github.io/posts/2019/Jan/30/how-to-install-hadoop-on-your-computer/" rel="alternate"></link><published>2019-01-30T17:30:00-06:00</published><updated>2019-01-30T17:30:00-06:00</updated><author><name>Eric Chan</name></author><id>tag:echanclarityinsights.github.io,2019-01-30:/posts/2019/Jan/30/how-to-install-hadoop-on-your-computer/</id><summary type="html">&lt;p&gt;&lt;img alt="Hadoop Meme" src="/images/2019-01-12/hadoop_meme.jpg"&gt;&lt;/p&gt;
+&lt;h2&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;This post is about installing Hadoop on a computer running Windows 10.  &lt;/p&gt;
 &lt;h3&gt;What is Hadoop?&lt;/h3&gt;
 &lt;p&gt;Hadoop is a framework that allows for distributed processing of large data sets
 across clusters of computers.  &lt;/p&gt;
 &lt;h2&gt;Step 1 - Install Java&lt;/h2&gt;
 &lt;h4&gt;Java Development Kit 8 (JDK 8) is already installed&lt;/h4&gt;
-&lt;p&gt;If JDK 8 is …&lt;/p&gt;</summary><content type="html">&lt;h2&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;If JDK 8 is …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="Hadoop Meme" src="/images/2019-01-12/hadoop_meme.jpg"&gt;&lt;/p&gt;
+&lt;h2&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;This post is about installing Hadoop on a computer running Windows 10.  &lt;/p&gt;
 &lt;h3&gt;What is Hadoop?&lt;/h3&gt;
 &lt;p&gt;Hadoop is a framework that allows for distributed processing of large data sets
@@ -242,7 +244,8 @@ cmd&amp;gt;hadoop fs -ls /user/echan
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h2&gt;Debugging: Fixing Incompatible cluster IDs&lt;/h2&gt;
+&lt;p&gt;Happy developing!  &lt;/p&gt;
+&lt;h4&gt;Debugging: Fixing Incompatible cluster IDs&lt;/h4&gt;
 &lt;p&gt;I ran into the following problem in my Name Node:  &lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;WARN org.apache.hadoop.hdfs.server.common.Storage: java.io.IOException: Incompatible clusterIDs
 org.apache.hadoop.hdfs.server.datanode.DataNode: Initialization failed for Block pool
@@ -251,8 +254,7 @@ org.apache.hadoop.hdfs.server.datanode.DataNode: Initialization failed for Block
 
 &lt;p&gt;To fix this, I copied the CluserID value from my &lt;code&gt;C:\Users\echan\Downloads\hadoop-2.9.2\etc\hadoop\namenode\current\VERSION&lt;/code&gt; file
 file to the &lt;code&gt;C:\Users\echan\Downloads\hadoop-2.9.2\etc\hadoop\datanode\current\VERSION&lt;/code&gt; file.
-To read more: &lt;a href="https://stackoverflow.com/questions/35108445/java-io-ioexception-incompatible-clusterids"&gt;Incompatible cluster IDs&lt;/a&gt;  &lt;/p&gt;
-&lt;p&gt;Happy developing!&lt;/p&gt;</content></entry><entry><title>How to Run Spark on Jupyter Notebook</title><link href="https://echanclarityinsights.github.io/posts/2018/Dec/26/how-to-run-spark-on-jupyter-notebook/" rel="alternate"></link><published>2018-12-26T14:35:00-06:00</published><updated>2018-12-26T14:35:00-06:00</updated><author><name>Eric Chan</name></author><id>tag:echanclarityinsights.github.io,2018-12-26:/posts/2018/Dec/26/how-to-run-spark-on-jupyter-notebook/</id><summary type="html">&lt;p&gt;&lt;img alt="Cat Meme" src="/images/2018-12-26/cat-meme.jpg"&gt;&lt;/p&gt;
+To read more: &lt;a href="https://stackoverflow.com/questions/35108445/java-io-ioexception-incompatible-clusterids"&gt;Incompatible cluster IDs&lt;/a&gt;  &lt;/p&gt;</content></entry><entry><title>How to Run Spark on Jupyter Notebook</title><link href="https://echanclarityinsights.github.io/posts/2018/Dec/26/how-to-run-spark-on-jupyter-notebook/" rel="alternate"></link><published>2018-12-26T14:35:00-06:00</published><updated>2018-12-26T14:35:00-06:00</updated><author><name>Eric Chan</name></author><id>tag:echanclarityinsights.github.io,2018-12-26:/posts/2018/Dec/26/how-to-run-spark-on-jupyter-notebook/</id><summary type="html">&lt;p&gt;&lt;img alt="Cat Meme" src="/images/2018-12-26/cat-meme.jpg"&gt;&lt;/p&gt;
 &lt;h2&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;This post is about setting up Spark to run on a Jupyter Notebook on a
 computer running Windows 10.  &lt;/p&gt;
