@@ -151,7 +151,7 @@ C:\Users\echan\Downloads\spark-2.3.2-bin-hadoop2.7\bin
 &lt;p&gt;Download &lt;a href="https://github.com/steveloughran/winutils"&gt;winutils.exe&lt;/a&gt;. Choose the
 winutils version corresponding to your package type (I used hadoop-2.7.1).
 Navigate to the &lt;code&gt;hadoop-2.7.1/bin&lt;/code&gt; directory and download the &lt;code&gt;winutils.exe&lt;/code&gt;
-file. Move this file to your &lt;code&gt;SPARK_HOME/bin&lt;/code&gt; directory.  &lt;/p&gt;
+file. Move this file to your &lt;code&gt;%SPARK_HOME%/bin&lt;/code&gt; directory.  &lt;/p&gt;
 &lt;h4&gt;Set HADOOP_HOME&lt;/h4&gt;
 &lt;p&gt;Set your &lt;code&gt;HADOOP_HOME&lt;/code&gt; environment variable to your Spark root directory.  &lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cmd&amp;gt; setx HADOOP_HOME &amp;quot;C:\Users\echan\Downloads\spark-2.3.2-bin-hadoop2.7&amp;quot;
